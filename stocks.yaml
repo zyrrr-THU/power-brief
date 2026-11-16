@@ -1,0 +1,27 @@
+# 关注的能源企业股票。代码格式：沪市 sh+6位，深市 sz+6位，港股 hk+5位
+# 数据来自腾讯行情公开接口，不需要 key。名称以接口返回为准，这里的 name 仅作备注。
+alert_pct: 5        # 日涨跌幅超过 ±5% 标红并关联当日新闻
+
+# 上市公司公告（巨潮资讯）：下面关注股票的近期公告 + 全市场标题含关键词的重要公告（覆盖中小企业）
+announcements:
+  enabled: true
+  days: 2
+  max_items: 12
+  keywords: [储能, 光伏, 风电, 电站, 核电, 售电, 虚拟电厂, 氢能, 电网, 特高压]
+
+stocks:
+  - {code: sh600900, name: 长江电力, group: 水电}
+  - {code: sh600011, name: 华能国际, group: 火电}
+  - {code: sh600795, name: 国电电力, group: 火电}
+  - {code: sh600027, name: 华电国际, group: 火电}
+  - {code: sh601991, name: 大唐发电, group: 火电}
+  - {code: sh601985, name: 中国核电, group: 核电}
+  - {code: sz003816, name: 中国广核, group: 核电}
+  - {code: sh600905, name: 三峡能源, group: 新能源}
+  - {code: sh601012, name: 隆基绿能, group: 新能源}
+  - {code: sz300274, name: 阳光电源, group: 储能/逆变器}
+  - {code: sz300750, name: 宁德时代, group: 储能/电池}
+  - {code: sh600406, name: 国电南瑞, group: 电网设备}
+  - {code: hk00836, name: 华润电力, group: 港股}
+  - {code: hk01816, name: 中广核电力, group: 港股}
+  - {code: hk00916, name: 龙源电力, group: 港股}

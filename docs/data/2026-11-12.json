@@ -1,0 +1,1291 @@
+{
+ "version": "1.1.0",
+ "date": "2026-11-12",
+ "mode": "rule",
+ "provider": null,
+ "highlights": [
+  "国家能源局综合司关于公布《现代化用电营商环境“三个一批”建设典型案例清单》的通知",
+  "国家能源局负责人出席《联合国气候变化框架公约》第三十一次缔约方大会安塔利亚领导人峰会“全球电网加速器”倡议高级别活动",
+  "国家能源局等部门关于促进燃气轮机创新发展的指导意见"
+ ],
+ "concept": {
+  "term": "新型储能",
+  "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+ },
+ "stocks": [
+  {
+   "code": "sh600900",
+   "name": "长江电力",
+   "group": "水电",
+   "price": 29.61,
+   "pct": 0.44,
+   "trend5": [
+    29.91,
+    29.83,
+    29.67,
+    29.48,
+    29.61
+   ],
+   "week_pct": 1.13,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161453",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600011",
+   "name": "华能国际",
+   "group": "火电",
+   "price": 7.63,
+   "pct": 1.33,
+   "trend5": [
+    7.65,
+    7.63,
+    7.61,
+    7.53,
+    7.63
+   ],
+   "week_pct": 3.11,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161447",
+   "news": [
+    "93824881727c"
+   ],
+   "anns": []
+  },
+  {
+   "code": "sh600795",
+   "name": "国电电力",
+   "group": "火电",
+   "price": 5.37,
+   "pct": 0.75,
+   "trend5": [
+    5.37,
+    5.41,
+    5.41,
+    5.33,
+    5.37
+   ],
+   "week_pct": 2.68,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161448",
+   "news": [],
+   "anns": [
+    "f27740a7aef9"
+   ]
+  },
+  {
+   "code": "sh600027",
+   "name": "华电国际",
+   "group": "火电",
+   "price": 5.1,
+   "pct": 0.2,
+   "trend5": [
+    5.16,
+    5.16,
+    5.13,
+    5.09,
+    5.1
+   ],
+   "week_pct": 0.99,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161453",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601991",
+   "name": "大唐发电",
+   "group": "火电",
+   "price": 4.64,
+   "pct": -1.69,
+   "trend5": [
+    4.75,
+    4.72,
+    4.71,
+    4.72,
+    4.64
+   ],
+   "week_pct": -2.73,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161441",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601985",
+   "name": "中国核电",
+   "group": "核电",
+   "price": 9.66,
+   "pct": 0.94,
+   "trend5": [
+    9.65,
+    9.8,
+    9.69,
+    9.57,
+    9.66
+   ],
+   "week_pct": 0.52,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161435",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz003816",
+   "name": "中国广核",
+   "group": "核电",
+   "price": 4.64,
+   "pct": 0.65,
+   "trend5": [
+    4.75,
+    4.77,
+    4.68,
+    4.61,
+    4.64
+   ],
+   "week_pct": -0.43,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161442",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600905",
+   "name": "三峡能源",
+   "group": "新能源",
+   "price": 3.26,
+   "pct": -1.51,
+   "trend5": [
+    3.42,
+    3.41,
+    3.36,
+    3.31,
+    3.26
+   ],
+   "week_pct": -5.51,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161451",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601012",
+   "name": "隆基绿能",
+   "group": "新能源",
+   "price": 11.78,
+   "pct": 0.26,
+   "trend5": [
+    12.42,
+    12.02,
+    12.16,
+    11.75,
+    11.78
+   ],
+   "week_pct": -5.53,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161448",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz300274",
+   "name": "阳光电源",
+   "group": "储能/逆变器",
+   "price": 78.26,
+   "pct": -2.28,
+   "trend5": [
+    81.97,
+    77.85,
+    79.6,
+    80.09,
+    78.26
+   ],
+   "week_pct": -8.08,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161445",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz300750",
+   "name": "宁德时代",
+   "group": "储能/电池",
+   "price": 240.0,
+   "pct": -2.7,
+   "trend5": [
+    254.22,
+    248.64,
+    249.95,
+    246.66,
+    240.0
+   ],
+   "week_pct": -9.11,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161409",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600406",
+   "name": "国电南瑞",
+   "group": "电网设备",
+   "price": 23.18,
+   "pct": 0.35,
+   "trend5": [
+    23.86,
+    23.68,
+    23.4,
+    23.1,
+    23.18
+   ],
+   "week_pct": -1.49,
+   "alert": false,
+   "market": "A股",
+   "time": "20261112161457",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk00836",
+   "name": "华润电力",
+   "group": "港股",
+   "price": 20.4,
+   "pct": -0.68,
+   "trend5": [
+    20.4,
+    20.48,
+    20.52,
+    20.54,
+    20.4
+   ],
+   "week_pct": 1.19,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/12 16:08:06",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk01816",
+   "name": "中广核电力",
+   "group": "港股",
+   "price": 3.39,
+   "pct": -1.17,
+   "trend5": [
+    3.44,
+    3.45,
+    3.435,
+    3.43,
+    3.39
+   ],
+   "week_pct": -1.02,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/12 16:08:07",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk00916",
+   "name": "龙源电力",
+   "group": "港股",
+   "price": 5.515,
+   "pct": -2.3,
+   "trend5": [
+    5.69,
+    5.605,
+    5.67,
+    5.645,
+    5.515
+   ],
+   "week_pct": -3.08,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/12 16:08:07",
+   "news": [],
+   "anns": []
+  }
+ ],
+ "items": [
+  {
+   "id": "8534ab573a24",
+   "title": "国家能源局综合司关于公布《现代化用电营商环境“三个一批”建设典型案例清单》的通知",
+   "url": "https://www.nea.gov.cn/20261109/dd6c5f3313a34d19ab874ec1dc5f75fa/c.html",
+   "source": "能源局·通知",
+   "origin": "能源局·通知",
+   "published": "2026-11-09T03:26:06+00:00",
+   "category": "政策法规",
+   "score": 12.1,
+   "summary": "国家能源局综合司关于公布《现代化用电营商环境“三个一批”建设典型案例清单》的通知 各省（自治区、直辖市）能源局，有关省（自治区、直辖市）及新疆生产建设兵团发展改革委、经信委（工信局），北京市城市管理委，各派出机构，国家电网有限公司、中国南方",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "中国能源新闻网",
+    "能源局·最新文件"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "2e2e207680ee",
+   "title": "国家能源局负责人出席《联合国气候变化框架公约》第三十一次缔约方大会安塔利亚领导人峰会“全球电网加速器”倡议高级别活动",
+   "url": "https://www.nea.gov.cn/20261112/e8d45734e41d4ce5ae2c619e644f0091/c.html",
+   "source": "能源局·工作动态",
+   "origin": "能源局·工作动态",
+   "published": "2026-11-12T10:58:48+00:00",
+   "category": "政策法规",
+   "score": 11.5,
+   "summary": "11月12日，“全球电网加速器”倡议高级别活动在土耳其安塔利亚举行，来自成员国政府高级别代表、联合国有关机构、多边开发银行、国际组织负责人、私营部门等近百名代表参加活动。中国国家能源局副局长何洋代表中方出席会议并发言。 “全球电网加速器”倡",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "d5cf3b9afb0a",
+   "title": "国家能源局等部门关于促进燃气轮机创新发展的指导意见",
+   "url": "http://www.nea.gov.cn/20261030/e06ee65dc8b743e58b3888a81ba6a8b2/c.html",
+   "source": "能源局·通知",
+   "origin": "能源局·通知",
+   "published": "2026-10-30T00:02:08+00:00",
+   "category": "政策法规",
+   "score": 10.9,
+   "summary": "国家能源局等部门关于促进燃气轮机创新发展的指导意见 各省、自治区、直辖市及计划单列市、新疆生产建设兵团能源、工业和信息化、国资、市场监管主管部门，有关企业： 为贯彻落实党中央和国务院决策部署，着力破解关键核心技术瓶颈，全面提升燃气轮机自主创",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "能源局·最新文件"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "5a4db38a590a",
+   "title": "国家能源局公告 2026年第5号",
+   "url": "https://www.nea.gov.cn/20261102/af04409304d44bfb89c9880f55b70dff/c.html",
+   "source": "能源局·公告",
+   "origin": "能源局·公告",
+   "published": "2026-11-02T07:06:52+00:00",
+   "category": "政策法规",
+   "score": 10.9,
+   "summary": "为持续推进能源领域首台（套）重大技术装备研制和应用，促进科技创新和产业创新深度融合，保障关键技术装备产业链供应链安全，我局组织了第六批能源领域首台（套）重大技术装备申报及评定。有关事项公告如下。 一、根据各有关单位申请，经组织专家评审和公示",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "能源局·最新文件"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "0bec733a8eaa",
+   "title": "国家能源局综合司关于做好电力企业安全生产费用提取和使用工作的通知",
+   "url": "https://www.nea.gov.cn/20261105/b975e2363c024aad8c4a7926b83658ad/c.html",
+   "source": "能源局·通知",
+   "origin": "能源局·通知",
+   "published": "2026-11-05T06:32:30+00:00",
+   "category": "政策法规",
+   "score": 10.9,
+   "summary": "国家能源局综合司关于做好电力企业安全生产费用提取和使用工作的通知 各省（自治区、直辖市）能源局，有关省（自治区、直辖市）及新疆生产建设兵团发展和改革委员会，北京市城市管理委员会、天津市工业和信息化局、辽宁省工业和信息化厅、重庆市经济和信息化",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "能源局·最新文件"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "df40e19baf33",
+   "title": "中广核浙江三澳核电项目4号机组主体工程开工",
+   "url": "http://www.cnenergynews.cn/article/4Tz3jYcWgVL",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "新能源与储能",
+   "score": 10.0,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 5,
+   "also": [
+    "Sohu",
+    "中青在线",
+    "维度网",
+    "见道网"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "核电核准与建设"
+   ],
+   "topic_info": [
+    {
+     "name": "核电核准与建设",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "c3e5ee9d4d5c",
+   "title": "关于2026年9月全国新增建档立卡新能源发电（不含户用光伏）项目情况的公告",
+   "url": "https://www.nea.gov.cn/20261102/567b561e1eb846c3910b6efeafa55f5e/c.html",
+   "source": "能源局·公告",
+   "origin": "能源局·公告",
+   "published": "2026-11-02T07:04:30+00:00",
+   "category": "政策法规",
+   "score": 9.7,
+   "summary": "关于2026年9月全国新增建档立卡新能源发电（不含户用光伏）项目情况的公告 2026年9月，全国新增建档立卡新能源发电（不含户用光伏）项目共3552个，其中风电项目15个，光伏发电项目3536个（集中式光伏发电项目53个，工商业分布式光伏发",
+   "why": "",
+   "terms": [
+    {
+     "term": "分布式光伏",
+     "explain": "装在屋顶、园区等用户附近的小型光伏，自发自用、余电上网，与大型地面电站相对。"
+    },
+    {
+     "term": "集中式光伏",
+     "explain": "在戈壁、荒漠等地建的大型地面光伏电站，通过高压电网外送。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "61493894d151",
+   "title": "【国内外能源企业携手加码绿色低碳市场】",
+   "url": "http://www.cnenergynews.cn/article/4Txyp2hHQ0t",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "市场与电价",
+   "score": 7.7,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "全国碳市场"
+   ],
+   "topic_info": [
+    {
+     "name": "全国碳市场",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "2cd236c3d93e",
+   "title": "电力市场信用评价迎来“全国一把尺”",
+   "url": "http://www.cnenergynews.cn/article/4Ty78XKBSpJ",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "市场与电价",
+   "score": 7.7,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "3d3951add403",
+   "title": "用电量“一冷一热”背后意味着什么？",
+   "url": "http://www.cnenergynews.cn/article/4Ty765qun9q",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "市场与电价",
+   "score": 7.7,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "电力供需与用电量"
+   ],
+   "topic_info": [
+    {
+     "name": "电力供需与用电量",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "94a9b4dea52c",
+   "title": "全国碳市场成交量破10亿吨，2027年扩围至石化化工等行业",
+   "url": "http://www.cnenergynews.cn/article/4TiFkTFAvwY",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "市场与电价",
+   "score": 7.7,
+   "summary": "",
+   "why": "",
+   "terms": [
+    {
+     "term": "全国碳市场",
+     "explain": "政府给电厂等重点排放单位分配二氧化碳排放额度，排多了要买额度、排少了可以卖，用价格推动减排。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "全国碳市场"
+   ],
+   "topic_info": [
+    {
+     "name": "全国碳市场",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "9059dd0d85a0",
+   "title": "晶澳20MW/40MWh储能项目即将并网，服务工厂削峰填谷",
+   "url": "http://www.cnenergynews.cn/article/4TzuGPSaYDg",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "新能源与储能",
+   "score": 7.6,
+   "summary": "",
+   "why": "",
+   "terms": [
+    {
+     "term": "并网",
+     "explain": "电站接入电网开始送电。全容量并网指全部机组都接入。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "国际储能网",
+    "碳索储能网"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "c4288e1aeffd",
+   "title": "国网浙江营销服务中心举办“走进营服中心”电力市场服务开放日活动",
+   "url": "https://m.sohu.com/a/1100723369_121627717?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·电力市场",
+   "origin": "Sohu",
+   "published": "2026-11-12T11:19:42+00:00",
+   "category": "市场与电价",
+   "score": 7.53,
+   "summary": "潮新闻客户端 通讯员 陈宇阳 周璐瑶 为持续优化电力市场服务，畅通政企沟通渠道，精准对接各类电力经营主体需求，11月11日，2026年浙江电力市场服务“走进营服中心”主题活动在杭州顺利举办。本次活动由国网浙江营销服务中心主办，全省40余家发",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "9daa714a0b09",
+   "title": "浙江省间电力现货市场年度购电量连续三年破百亿千瓦时",
+   "url": "https://m.sohu.com/a/1100268899_121157270?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·电力市场",
+   "origin": "Sohu",
+   "published": "2026-11-11T12:40:00+00:00",
+   "category": "市场与电价",
+   "score": 7.2,
+   "summary": "据国网浙江电力消息，截至11月10日，浙江2026年度省间电力现货市场购电量达104.27亿千瓦时，占全国成交量的24%。这是浙江连续第三年省间电力现货市场年度购电量超过100亿千瓦时。 浙江是电力受端大省，外来电约占全省用电量的三分之一。",
+   "why": "",
+   "terms": [
+    {
+     "term": "电力现货市场",
+     "explain": "像菜市场一样按小时甚至每15分钟买卖电，价格随供需实时变化；用电紧张时电价高，新能源大发时电价可能接近零甚至为负。"
+    }
+   ],
+   "watch_hit": [
+    "电力现货"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "电力现货市场",
+    "电力供需与用电量"
+   ],
+   "topic_info": [
+    {
+     "name": "电力现货市场",
+     "prior": 0,
+     "last": null
+    },
+    {
+     "name": "电力供需与用电量",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "78d6fde7076c",
+   "title": "中国建筑成立核电特构制造公司",
+   "url": "https://wap.cj.sina.cn/7x24/5209819",
+   "source": "搜索·核电氢能",
+   "origin": "新浪网",
+   "published": "2026-11-12T03:52:03+00:00",
+   "category": "新能源与储能",
+   "score": 6.81,
+   "summary": "中国建筑成立核电特构制造公司_7x24快讯_新浪财经 新浪财经客户端 你永远在大事现场 打开APP 中国建筑成立核电特构制造公司 企查查APP显示，近日，中建核电特构制造（广东）有限公司成立，法定代表人为李庆弘，注册资本为1亿元，经营范围包",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "Sohu",
+    "新浪财经"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "核电核准与建设"
+   ],
+   "topic_info": [
+    {
+     "name": "核电核准与建设",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "d43cb57fce05",
+   "title": "华能110MW光伏项目开工",
+   "url": "https://m.sohu.com/a/1100750765_146940?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·发电集团",
+   "origin": "Sohu",
+   "published": "2026-11-12T13:00:00+00:00",
+   "category": "新能源与储能",
+   "score": 6.67,
+   "summary": "近日【光伏资讯】微信公众号（PV-info）了解到， 据“华能岳电人”微信公众号消息，11月4日， 华能岳阳电厂“十五五”首个集中式开工项目—— 华能 津市市罗家台羊角汊渔光互补光伏项目 正式开工。 据悉，华能津市市罗家台羊角汊渔光互补光伏",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "华能"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "80225968fbc8",
+   "title": "视频丨产业链向深远海延伸！我国海上风电年发电量超千亿千瓦时",
+   "url": "https://news.bjd.com.cn/2026/11/12/12027362.shtml",
+   "source": "搜索·新能源",
+   "origin": "京报网",
+   "published": "2026-11-12T00:27:09+00:00",
+   "category": "新能源与储能",
+   "score": 6.53,
+   "summary": "今年以来，我国海上风电开发建设持续推进，装机规模稳步扩大。记者从2026海上风电现代产业链共链行动大会上了解到，我国海上风电累计并网装机和年度新增装机连续五年居全球首位，占全球比重均超过一半，年发电量超过1000亿千瓦时。 全球首台20兆瓦",
+   "why": "",
+   "terms": [
+    {
+     "term": "海上风电",
+     "explain": "建在海上的风电场，风资源好、靠近东部负荷中心，但建设和运维成本更高。"
+    },
+    {
+     "term": "发电量",
+     "explain": "实际发了多少电，单位千瓦时（kWh，即“度”）、亿千瓦时。装机大不等于发电多，还要看利用小时数。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "36Kr",
+    "东方财富"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "41d3e701a773",
+   "title": "三峡集团一批新能源项目取得新进展",
+   "url": "https://mwind.in-en.com/html/wind-2471764.shtml",
+   "source": "搜索·储能",
+   "origin": "国际风电网",
+   "published": "2026-11-12T11:13:45+00:00",
+   "category": "新能源与储能",
+   "score": 6.52,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "三峡"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "3f06245eb09b",
+   "title": "国家电网、南方电网持续优化用电营商环境",
+   "url": "https://m.sohu.com/a/1100710784_122014422?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·电网",
+   "origin": "Sohu",
+   "published": "2026-11-12T10:37:51+00:00",
+   "category": "电网与技术",
+   "score": 6.47,
+   "summary": "——国家电网打造现代化用电营商环境 11月11日，江苏昆山。维信诺全球新型显示产业创新中心二期工地上，外线土建已起近八成，12月中旬转入电气施工。 这家OLED龙头企业，一边建厂，一边调试整机，一边还要让先期产线转起来，几笔用电账摞在一起，",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "国家电网",
+    "南方电网"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "93824881727c",
+   "title": "华能国际电力股份(00902)完成发行20亿元超短期融资券 提供者 智通财经",
+   "url": "https://cn.investing.com/news/stock-market-news/article-3663927",
+   "source": "搜索·发电集团",
+   "origin": "英为财情 Investing.com",
+   "published": "2026-11-12T09:50:00+00:00",
+   "category": "企业动态",
+   "score": 6.41,
+   "summary": "403",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "华能"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "129a94f21b96",
+   "title": "国家电投集团露天煤矿边坡多元感知智能监管系统试运行成功",
+   "url": "https://www.nengyuanjie.net/article/121371.html",
+   "source": "搜索·发电集团",
+   "origin": "能源界",
+   "published": "2026-11-12T07:10:00+00:00",
+   "category": "企业动态",
+   "score": 6.19,
+   "summary": "2026-11-12 15:10  来源：国家电投集团  浏览： 露天煤矿边坡受地质、采剥、爆破、降雨及地下水等多重因素耦合扰动，传统监测模式存在数据孤岛、研判支撑不足、预警滞后、处置闭环难等痛点。该系统搭建空天地立体感知架构，集成GNSS",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "国家电投"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "d9565f10fe96",
+   "title": "作为国家电网农村电气化项目的一部分，Hanh Phuc 公社获得了 65 亿越南盾的投资。",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPV0JxSWh0amxFXzZiQTNRLVJjSUJyem1OVHUzUk5EM0RlMXdSSXEwN2RPV3JuT3pMbWVEUW13WjFaRWJJWlQwaWE5TEhfQXd4VEZEczRCeXczcy11dlNZVHppdzlJZEU3QldXcjdsMS1RWDd5MVpnNlVfT1YwZ3diN0RHY3Y5SzdXN0JnX3otZE14dDJNeG00S2NubUp3cUhVSEdxYWc5eUdHUFhhaWFOQzl6aGVBODYyd2c?oc=5",
+   "source": "搜索·电网",
+   "origin": "Vietnam.vn",
+   "published": "2026-11-12T05:46:47+00:00",
+   "category": "电网与技术",
+   "score": 6.07,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "国家电网"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  }
+ ],
+ "policy": [
+  {
+   "id": "8534ab573a24",
+   "date": "2026-11-12",
+   "title": "国家能源局综合司关于公布《现代化用电营商环境“三个一批”建设典型案例清单》的通知",
+   "url": "https://www.nea.gov.cn/20261109/dd6c5f3313a34d19ab874ec1dc5f75fa/c.html",
+   "origin": "能源局·通知",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家能源局综合司关于公布《现代化用电营商环境“三个一批”建设典型案例清单》的通知 各省（自治区、直辖市）能源局，有关省（自治区、直辖市）及新疆生产建设兵团发展改革委、经信委（工信局），北京市城市管理委，各派出机构，国家电网有限公司、中国南方",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "d5cf3b9afb0a",
+   "date": "2026-11-12",
+   "title": "国家能源局等部门关于促进燃气轮机创新发展的指导意见",
+   "url": "http://www.nea.gov.cn/20261030/e06ee65dc8b743e58b3888a81ba6a8b2/c.html",
+   "origin": "能源局·通知",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家能源局等部门关于促进燃气轮机创新发展的指导意见 各省、自治区、直辖市及计划单列市、新疆生产建设兵团能源、工业和信息化、国资、市场监管主管部门，有关企业： 为贯彻落实党中央和国务院决策部署，着力破解关键核心技术瓶颈，全面提升燃气轮机自主创",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "5a4db38a590a",
+   "date": "2026-11-12",
+   "title": "国家能源局公告 2026年第5号",
+   "url": "https://www.nea.gov.cn/20261102/af04409304d44bfb89c9880f55b70dff/c.html",
+   "origin": "能源局·公告",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "为持续推进能源领域首台（套）重大技术装备研制和应用，促进科技创新和产业创新深度融合，保障关键技术装备产业链供应链安全，我局组织了第六批能源领域首台（套）重大技术装备申报及评定。有关事项公告如下。 一、根据各有关单位申请，经组织专家评审和公示",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "0bec733a8eaa",
+   "date": "2026-11-12",
+   "title": "国家能源局综合司关于做好电力企业安全生产费用提取和使用工作的通知",
+   "url": "https://www.nea.gov.cn/20261105/b975e2363c024aad8c4a7926b83658ad/c.html",
+   "origin": "能源局·通知",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家能源局综合司关于做好电力企业安全生产费用提取和使用工作的通知 各省（自治区、直辖市）能源局，有关省（自治区、直辖市）及新疆生产建设兵团发展和改革委员会，北京市城市管理委员会、天津市工业和信息化局、辽宁省工业和信息化厅、重庆市经济和信息化",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "c3e5ee9d4d5c",
+   "date": "2026-11-12",
+   "title": "关于2026年9月全国新增建档立卡新能源发电（不含户用光伏）项目情况的公告",
+   "url": "https://www.nea.gov.cn/20261102/567b561e1eb846c3910b6efeafa55f5e/c.html",
+   "origin": "能源局·公告",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "关于2026年9月全国新增建档立卡新能源发电（不含户用光伏）项目情况的公告 2026年9月，全国新增建档立卡新能源发电（不含户用光伏）项目共3552个，其中风电项目15个，光伏发电项目3536个（集中式光伏发电项目53个，工商业分布式光伏发",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "e8a0a63edb83",
+   "date": "2026-11-12",
+   "title": "宁夏电力中长期交易细则征求意见！对直接参与市场交易的经营主体不再人为规定分时电价水平和时段",
+   "url": "https://chuneng.in-en.com/html/chunengy-59995.shtml",
+   "origin": "国际储能网",
+   "policy_type": "征求意见",
+   "deadline": "",
+   "summary": "",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "c143e95864c0",
+   "date": "2026-11-12",
+   "title": "湖南省“十五五”可再生能源发展规划：因地制宜布局大功率充电设施和光储超充综合补能站",
+   "url": "https://www.ne21.com/news/show-232927.html",
+   "origin": "世纪新能源网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "11月4日，湖南省发展和改革委员会关于印发《湖南省“十五五”可再生能源发展规划》的通知。文件指出，构建高承载力、高可靠性、高灵活性、高数智化的现代配电网，主动适应分布式新能源、用户侧储能、充电设施等多",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "5462ab13153d",
+   "date": "2026-11-12",
+   "title": "国家能源局华东监管局印发《长三角电力市场短期互济交易实施细则(试行)》",
+   "url": "https://power.in-en.com/html/power-2480892.shtml",
+   "origin": "国际能源网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "338bfd070114",
+   "date": "2026-11-12",
+   "title": "2027年1月1日起施行！长三角电力市场短期互济交易实施细则(试行)发布",
+   "url": "https://www.ne21.com/news/show-232819.html",
+   "origin": "世纪新能源网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "市场成员包括经营主体、电网企业和市场运营机构。经营主体包括发电侧主体、用户侧主体、新型经营主体。 日前，国家能源局华东监管局关于印发《长三角电力市场短期互济交易实施细则(试行)》的通知，通知指出，市场",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "71b70964e5ba",
+   "date": "2026-11-12",
+   "title": "一揽子解题方案促进县域光伏多方共赢",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE00Szlacm5ZRnhDU183Vk5VTFBwZE5XNFpWbFVzb1ZjZFlBVmg5ZjU4SHRIa2szbGNoSm94Y1YzQU9BU0xkdFNiTjVBTEhONlVhTFYwbWFYVEh2aFEwa1BWQ19tY1FpSFlQVHRmNjRITU9VUQ?oc=5",
+   "origin": "中国金融信息网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "",
+   "in_brief": false,
+   "official": false
+  }
+ ],
+ "announcements": [
+  {
+   "id": "cfbb4b8b6605",
+   "code": "00686",
+   "name": "北京能源国际",
+   "title": "(1) 有关中国河北省沧州市东光县于桥镇50兆瓦风电场项目，以及中国河北省沧州市东光县找王镇50兆瓦风电场项目相关设施之工程、采购及建设合约之主要交易；及(2) 股东特别大会通告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225669652.PDF",
+   "published": "2026-11-12T10:46:09+00:00",
+   "origin": "关键词·风电",
+   "level": "important"
+  },
+  {
+   "id": "242b028faba4",
+   "code": "300040",
+   "name": "九洲集团",
+   "title": "关于部分新能源电站收到可再生能源发电补贴的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225668582.PDF",
+   "published": "2026-11-12T09:12:09+00:00",
+   "origin": "关键词·电站",
+   "level": "important"
+  },
+  {
+   "id": "6354cffaa623",
+   "code": "300423",
+   "name": "昇辉科技",
+   "title": "昇辉科技关于新能源换电站建设业务中标暨签署协议的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225668285.PDF",
+   "published": "2026-11-12T08:30:26+00:00",
+   "origin": "关键词·电站",
+   "level": "important"
+  },
+  {
+   "id": "3f5a6bf6ad11",
+   "code": "02380",
+   "name": "中国电力",
+   "title": "有关光伏发电项目的工程总承包合同",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-11/1225666709.PDF",
+   "published": "2026-11-11T09:02:10+00:00",
+   "origin": "关键词·光伏",
+   "level": "important"
+  },
+  {
+   "id": "f27740a7aef9",
+   "code": "600795",
+   "name": "国电电力",
+   "title": "国电电力关于选举公司董事并调整专门委员会委员的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-11/1225664679.PDF",
+   "published": "2026-11-10T16:00:00+00:00",
+   "origin": "关注股票",
+   "level": "other",
+   "stock": "sh600795"
+  }
+ ],
+ "key_numbers": [],
+ "indicators": [
+  {
+   "name": "全国碳市场收盘价",
+   "unit": "元/吨",
+   "source": "全国碳排放权交易市场每日收盘价（新闻报道）",
+   "freq": "day",
+   "date": "2026-11-12",
+   "value": 92.41,
+   "prev": 91.93,
+   "change": 0.48,
+   "change_pct": 0.52,
+   "core": true,
+   "series": [
+    [
+     "2026-10-13",
+     98.25
+    ],
+    [
+     "2026-10-14",
+     98.14
+    ],
+    [
+     "2026-10-15",
+     97.18
+    ],
+    [
+     "2026-10-16",
+     97.56
+    ],
+    [
+     "2026-10-19",
+     97.85
+    ],
+    [
+     "2026-10-21",
+     98.15
+    ],
+    [
+     "2026-10-22",
+     96.66
+    ],
+    [
+     "2026-10-23",
+     95.79
+    ],
+    [
+     "2026-10-26",
+     95.08
+    ],
+    [
+     "2026-10-27",
+     94.92
+    ],
+    [
+     "2026-10-29",
+     95.53
+    ],
+    [
+     "2026-10-30",
+     95.08
+    ],
+    [
+     "2026-11-02",
+     95.32
+    ],
+    [
+     "2026-11-05",
+     94.7
+    ],
+    [
+     "2026-11-06",
+     94.4
+    ],
+    [
+     "2026-11-09",
+     93.36
+    ],
+    [
+     "2026-11-10",
+     91.93
+    ],
+    [
+     "2026-11-12",
+     92.41
+    ]
+   ]
+  },
+  {
+   "name": "布伦特原油",
+   "unit": "美元/桶",
+   "source": "新浪财经 国际期货连续合约",
+   "freq": "day",
+   "date": "2026-11-12",
+   "value": 94.139,
+   "prev": null,
+   "change": null,
+   "change_pct": null,
+   "core": true,
+   "series": [
+    [
+     "2026-11-12",
+     94.139
+    ]
+   ]
+  },
+  {
+   "name": "全社会用电量累计同比",
+   "unit": "%",
+   "source": "国家能源局月度发布（新闻报道）",
+   "freq": "month",
+   "date": "2026-09",
+   "value": 3.9,
+   "prev": null,
+   "change": null,
+   "change_pct": null,
+   "core": true,
+   "series": [
+    [
+     "2026-09",
+     3.9
+    ]
+   ]
+  },
+  {
+   "name": "美国天然气",
+   "unit": "美元/百万英热",
+   "source": "新浪财经 国际期货连续合约",
+   "freq": "day",
+   "date": "2026-11-12",
+   "value": 3.667,
+   "prev": null,
+   "change": null,
+   "change_pct": null,
+   "core": true,
+   "series": [
+    [
+     "2026-11-12",
+     3.667
+    ]
+   ]
+  }
+ ],
+ "source_stats": {
+  "能源局·通知": 3,
+  "能源局·公告": 2,
+  "能源局·最新文件": 4,
+  "能源局·解读": 0,
+  "能源局·项目核准": 0,
+  "能源局·工作动态": 3,
+  "能源局·能源要闻": 0,
+  "国家发改委·新闻发布": 0,
+  "国家发改委·政策通知": 0,
+  "生态环境部": 0,
+  "中国能源新闻网": 61,
+  "搜索·电力政策": 7,
+  "搜索·电价": 16,
+  "搜索·电力市场": 14,
+  "搜索·储能": 53,
+  "搜索·新能源": 16,
+  "搜索·电网": 14,
+  "搜索·发电集团": 35,
+  "搜索·核电氢能": 70,
+  "搜索·虚拟电厂": 18,
+  "搜索·北极星电力网": 0,
+  "Global·Power": 46,
+  "Utility Dive": 10,
+  "政策·广东": 8,
+  "政策·山东": 2,
+  "政策·江苏": 2,
+  "政策·浙江": 1,
+  "政策·内蒙古": 0
+ },
+ "source_alerts": [],
+ "notes": [
+  "AI 解读不可用，今天为规则模式（查看日志中“跳过/失败”原因）"
+ ],
+ "article_stats": {
+  "decoded": 33,
+  "decode_failed": 0,
+  "text": 33
+ },
+ "site_url": "",
+ "schema": 1
+}

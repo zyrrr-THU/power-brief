@@ -1,0 +1,89 @@
+# 云端运行：每天北京时间 07:30 生成简报、推送、提交到仓库（GitHub Pages 从 docs/ 发布）
+# 网页“立即更新”按钮也是触发这个工作流（手动触发时默认只更新网页、不推送到手机）
+name: daily-brief
+
+on:
+  schedule:
+    - cron: "30 23 * * *"     # UTC 23:30 = 北京时间 07:30（GitHub 定时任务常有 5–30 分钟延迟）
+  workflow_dispatch:           # 网页“立即更新”或 Actions 页面手动运行
+    inputs:
+      push:
+        description: "生成后推送到手机"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Generate brief
+        id: gen
+        continue-on-error: true    # 失败也要把运行记录提交上去，网页上能看到原因
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DASHSCOPE_API_KEY: ${{ secrets.DASHSCOPE_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+          ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+          BARK_KEY: ${{ secrets.BARK_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          MANUAL: ${{ github.event_name == 'workflow_dispatch' }}
+          WANT_PUSH: ${{ inputs.push }}
+        run: |
+          if [ "$MANUAL" = "true" ]; then
+            if [ "$WANT_PUSH" = "true" ]; then python -m powerbrief --force; else python -m powerbrief --force --no-push; fi
+          else
+            python -m powerbrief
+          fi
+      - name: Commit data
+        run: |
+          git config user.name "powerbrief-bot"
+          git config user.email "powerbrief-bot@users.noreply.github.com"
+          git add docs state
+          git diff --cached --quiet && exit 0
+          git commit -m "brief $(TZ=Asia/Shanghai date +%F)"
+          # 网页可能刚保存过设置，先合并再推送；失败重试
+          for i in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            sleep 5
+          done
+          exit 1
+      - name: Keep logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: logs/
+          retention-days: 7
+          if-no-files-found: ignore
+      - name: Report failure
+        if: steps.gen.outcome == 'failure'
+        run: |
+          echo "生成简报失败，详见上方 Generate brief 步骤的日志"
+          exit 1

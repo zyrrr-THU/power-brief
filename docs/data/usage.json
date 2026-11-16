@@ -1,0 +1,158 @@
+{
+ "plan": "api",
+ "plan_name": "按量付费 API",
+ "plan_fee_usd": null,
+ "days": [
+  {
+   "date": "2026-11-13",
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0,
+   "calls": 1,
+   "failed": 1,
+   "providers": [
+    "claude_cli"
+   ],
+   "detail": [
+    {
+     "provider": "claude_cli",
+     "type": "claude_cli",
+     "model": "sonnet",
+     "purpose": "daily",
+     "ok": false,
+     "seconds": 3.3,
+     "prompt_chars": 10871,
+     "input": 0,
+     "output": 0,
+     "cache_read": 0,
+     "cache_write": 0,
+     "total": 0,
+     "cost_usd": 0.0,
+     "cost_source": "估算"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-14",
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0,
+   "calls": 1,
+   "failed": 1,
+   "providers": [
+    "claude_cli"
+   ],
+   "detail": [
+    {
+     "provider": "claude_cli",
+     "type": "claude_cli",
+     "model": "sonnet",
+     "purpose": "daily",
+     "ok": false,
+     "seconds": 3.4,
+     "prompt_chars": 10981,
+     "input": 0,
+     "output": 0,
+     "cache_read": 0,
+     "cache_write": 0,
+     "total": 0,
+     "cost_usd": 0.0,
+     "cost_source": "估算"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-15",
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0,
+   "calls": 2,
+   "failed": 2,
+   "providers": [
+    "claude_cli"
+   ],
+   "detail": [
+    {
+     "provider": "claude_cli",
+     "type": "claude_cli",
+     "model": "sonnet",
+     "purpose": "daily",
+     "ok": false,
+     "seconds": 3.4,
+     "prompt_chars": 8255,
+     "input": 0,
+     "output": 0,
+     "cache_read": 0,
+     "cache_write": 0,
+     "total": 0,
+     "cost_usd": 0.0,
+     "cost_source": "估算"
+    },
+    {
+     "provider": "claude_cli",
+     "type": "claude_cli",
+     "model": "sonnet",
+     "purpose": "weekly",
+     "ok": false,
+     "seconds": 1.4,
+     "prompt_chars": 1744,
+     "input": 0,
+     "output": 0,
+     "cache_read": 0,
+     "cache_write": 0,
+     "total": 0,
+     "cost_usd": 0.0,
+     "cost_source": "估算"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-16",
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0,
+   "calls": 1,
+   "failed": 1,
+   "providers": [
+    "claude_cli"
+   ],
+   "detail": [
+    {
+     "provider": "claude_cli",
+     "type": "claude_cli",
+     "model": "sonnet",
+     "purpose": "daily",
+     "ok": false,
+     "seconds": 3.6,
+     "prompt_chars": 9541,
+     "input": 0,
+     "output": 0,
+     "cache_read": 0,
+     "cache_write": 0,
+     "total": 0,
+     "cost_usd": 0.0,
+     "cost_source": "估算"
+    }
+   ]
+  }
+ ],
+ "days_with_usage": 0,
+ "avg_tokens_per_day": 0,
+ "avg_cost_per_day_usd": 0,
+ "month_tokens": 0,
+ "month_cost_usd": 0,
+ "plan_share_pct": null,
+ "note": "“约占套餐”= 按 API 价格折算的月费用 ÷ 套餐月费，是偏保守的参考值：订阅额度按 5 小时和每周窗口计算，官方未公布 token 上限，一般可用量折算成 API 价格高于月费，所以实际占用比例通常更低。在 Claude Code 中输入 /usage 可看到真实的额度使用情况。"
+}

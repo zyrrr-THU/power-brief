@@ -1,0 +1,90 @@
+{
+ "2026-11-13": [
+  {
+   "provider": "claude_cli",
+   "type": "claude_cli",
+   "model": "sonnet",
+   "purpose": "daily",
+   "ok": false,
+   "seconds": 3.3,
+   "prompt_chars": 10871,
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0.0,
+   "cost_source": "估算"
+  }
+ ],
+ "2026-11-14": [
+  {
+   "provider": "claude_cli",
+   "type": "claude_cli",
+   "model": "sonnet",
+   "purpose": "daily",
+   "ok": false,
+   "seconds": 3.4,
+   "prompt_chars": 10981,
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0.0,
+   "cost_source": "估算"
+  }
+ ],
+ "2026-11-15": [
+  {
+   "provider": "claude_cli",
+   "type": "claude_cli",
+   "model": "sonnet",
+   "purpose": "daily",
+   "ok": false,
+   "seconds": 3.4,
+   "prompt_chars": 8255,
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0.0,
+   "cost_source": "估算"
+  },
+  {
+   "provider": "claude_cli",
+   "type": "claude_cli",
+   "model": "sonnet",
+   "purpose": "weekly",
+   "ok": false,
+   "seconds": 1.4,
+   "prompt_chars": 1744,
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0.0,
+   "cost_source": "估算"
+  }
+ ],
+ "2026-11-16": [
+  {
+   "provider": "claude_cli",
+   "type": "claude_cli",
+   "model": "sonnet",
+   "purpose": "daily",
+   "ok": false,
+   "seconds": 3.6,
+   "prompt_chars": 9541,
+   "input": 0,
+   "output": 0,
+   "cache_read": 0,
+   "cache_write": 0,
+   "total": 0,
+   "cost_usd": 0.0,
+   "cost_source": "估算"
+  }
+ ]
+}

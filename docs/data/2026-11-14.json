@@ -1,0 +1,1403 @@
+{
+ "version": "1.2.0",
+ "date": "2026-11-14",
+ "mode": "rule",
+ "provider": null,
+ "highlights": [
+  "关于印发《“十五五”新型储能实施方案》的通知(发改能源〔2026〕1565号)",
+  "国家能源局有关负责同志就《“十五五”新型储能实施方案》答记者问",
+  "两部门印发《“十五五”新型储能实施方案》"
+ ],
+ "concept": {
+  "term": "独立储能",
+  "explain": "不依附于某个电站、直接接入电网的储能电站，可参与现货、调频、容量租赁等多种收益。"
+ },
+ "stocks": [
+  {
+   "code": "sh600900",
+   "name": "长江电力",
+   "group": "水电",
+   "price": 29.91,
+   "pct": 1.01,
+   "trend5": [
+    29.83,
+    29.67,
+    29.48,
+    29.61,
+    29.91
+   ],
+   "week_pct": 0.0,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161455",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600011",
+   "name": "华能国际",
+   "group": "火电",
+   "price": 7.79,
+   "pct": 2.1,
+   "trend5": [
+    7.63,
+    7.61,
+    7.53,
+    7.63,
+    7.79
+   ],
+   "week_pct": 1.83,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161450",
+   "news": [
+    "03616ebd128b"
+   ],
+   "anns": [
+    "ad18d7551f54"
+   ]
+  },
+  {
+   "code": "sh600795",
+   "name": "国电电力",
+   "group": "火电",
+   "price": 5.48,
+   "pct": 2.05,
+   "trend5": [
+    5.41,
+    5.41,
+    5.33,
+    5.37,
+    5.48
+   ],
+   "week_pct": 2.05,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161445",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600027",
+   "name": "华电国际",
+   "group": "火电",
+   "price": 5.19,
+   "pct": 1.76,
+   "trend5": [
+    5.16,
+    5.13,
+    5.09,
+    5.1,
+    5.19
+   ],
+   "week_pct": 0.58,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161452",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601991",
+   "name": "大唐发电",
+   "group": "火电",
+   "price": 4.59,
+   "pct": -1.08,
+   "trend5": [
+    4.72,
+    4.71,
+    4.72,
+    4.64,
+    4.59
+   ],
+   "week_pct": -3.37,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161454",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601985",
+   "name": "中国核电",
+   "group": "核电",
+   "price": 9.72,
+   "pct": 0.62,
+   "trend5": [
+    9.8,
+    9.69,
+    9.57,
+    9.66,
+    9.72
+   ],
+   "week_pct": 0.73,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161446",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz003816",
+   "name": "中国广核",
+   "group": "核电",
+   "price": 4.67,
+   "pct": 0.65,
+   "trend5": [
+    4.77,
+    4.68,
+    4.61,
+    4.64,
+    4.67
+   ],
+   "week_pct": -1.68,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161448",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh600905",
+   "name": "三峡能源",
+   "group": "新能源",
+   "price": 3.23,
+   "pct": -0.92,
+   "trend5": [
+    3.41,
+    3.36,
+    3.31,
+    3.26,
+    3.23
+   ],
+   "week_pct": -5.56,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161435",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sh601012",
+   "name": "隆基绿能",
+   "group": "新能源",
+   "price": 11.7,
+   "pct": -0.68,
+   "trend5": [
+    12.02,
+    12.16,
+    11.75,
+    11.78,
+    11.7
+   ],
+   "week_pct": -5.8,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161459",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz300274",
+   "name": "阳光电源",
+   "group": "储能/逆变器",
+   "price": 77.49,
+   "pct": -0.98,
+   "trend5": [
+    77.85,
+    79.6,
+    80.09,
+    78.26,
+    77.49
+   ],
+   "week_pct": -5.47,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161430",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "sz300750",
+   "name": "宁德时代",
+   "group": "储能/电池",
+   "price": 237.7,
+   "pct": -0.96,
+   "trend5": [
+    248.64,
+    249.95,
+    246.66,
+    240.0,
+    237.7
+   ],
+   "week_pct": -6.5,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161445",
+   "news": [
+    "de39502d6e07"
+   ],
+   "anns": []
+  },
+  {
+   "code": "sh600406",
+   "name": "国电南瑞",
+   "group": "电网设备",
+   "price": 23.26,
+   "pct": 0.35,
+   "trend5": [
+    23.68,
+    23.4,
+    23.1,
+    23.18,
+    23.26
+   ],
+   "week_pct": -2.51,
+   "alert": false,
+   "market": "A股",
+   "time": "20261113161445",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk00836",
+   "name": "华润电力",
+   "group": "港股",
+   "price": 20.32,
+   "pct": -0.39,
+   "trend5": [
+    20.48,
+    20.52,
+    20.54,
+    20.4,
+    20.32
+   ],
+   "week_pct": -0.39,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/13 16:08:22",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk01816",
+   "name": "中广核电力",
+   "group": "港股",
+   "price": 3.38,
+   "pct": -0.29,
+   "trend5": [
+    3.45,
+    3.435,
+    3.43,
+    3.39,
+    3.38
+   ],
+   "week_pct": -1.74,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/13 16:08:24",
+   "news": [],
+   "anns": []
+  },
+  {
+   "code": "hk00916",
+   "name": "龙源电力",
+   "group": "港股",
+   "price": 5.485,
+   "pct": -0.54,
+   "trend5": [
+    5.605,
+    5.67,
+    5.645,
+    5.515,
+    5.485
+   ],
+   "week_pct": -3.6,
+   "alert": false,
+   "market": "港股",
+   "time": "2026/11/13 16:08:24",
+   "news": [],
+   "anns": []
+  }
+ ],
+ "items": [
+  {
+   "id": "c1145b2d5c9a",
+   "title": "关于印发《“十五五”新型储能实施方案》的通知(发改能源〔2026〕1565号)",
+   "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202611/t20261113_1408810.html",
+   "source": "国家发改委·政策通知",
+   "origin": "国家发改委·政策通知",
+   "published": "2026-11-13T04:00:00+00:00",
+   "category": "政策法规",
+   "score": 12.1,
+   "summary": "国家发展改革委  国家能源局关于印发 《“十五五”新型储能实施方案》.pdf 《“十五五”新型储能实施方案》.ofd",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "能源局·最新文件",
+    "能源局·通知"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "a1b44408c8cb",
+   "title": "国家能源局有关负责同志就《“十五五”新型储能实施方案》答记者问",
+   "url": "https://www.nea.gov.cn/20261113/6a2b2141529448ddb8650df1784abe73/c.html",
+   "source": "能源局·解读",
+   "origin": "能源局·解读",
+   "published": "2026-11-13T12:04:30+00:00",
+   "category": "政策法规",
+   "score": 11.36,
+   "summary": "近日，国家发展改革委、国家能源局联合印发《“十五五”新型储能实施方案》（以下简称《实施方案》）。记者采访了国家能源局有关负责同志。 一、《实施方案》出台的背景是什么？ 答： 党中央、国务院高度重视新型储能发展，新型储能发展连续三年写入《政府",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "能源局·工作动态"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "政策解读",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "91349f3bec6c",
+   "title": "两部门印发《“十五五”新型储能实施方案》",
+   "url": "http://www.cnenergynews.cn/article/4U0hbmb2UO9",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "政策法规",
+   "score": 11.3,
+   "summary": "",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 4,
+   "also": [
+    "观点网",
+    "财联社",
+    "재경일보"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "a1a59f552e1d",
+   "title": "一图读懂 | “十五五”新型储能实施方案",
+   "url": "https://www.nea.gov.cn/20261113/e01150d49f6f4a04ad851cb40887401d/c.html",
+   "source": "能源局·解读",
+   "origin": "能源局·解读",
+   "published": "2026-11-13T12:03:49+00:00",
+   "category": "政策法规",
+   "score": 10.16,
+   "summary": "一图读懂 | “十五五”新型储能实施方案---国家能源局 您当前位置： 首页 > 正文 一图读懂 | “十五五”新型储能实施方案 发布时间：2026-11-13 来源：国家能源局 大 中 小",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "政策解读",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "a1a59f552e1d",
+   "title": "一图读懂 | “十五五”新型储能实施方案",
+   "url": "https://www.nea.gov.cn/20261113/e01150d49f6f4a04ad851cb40887401d/c.html",
+   "source": "能源局·工作动态",
+   "origin": "能源局·工作动态",
+   "published": "2026-11-13T12:03:49+00:00",
+   "category": "政策法规",
+   "score": 10.16,
+   "summary": "一图读懂 | “十五五”新型储能实施方案---国家能源局 您当前位置： 首页 > 正文 一图读懂 | “十五五”新型储能实施方案 发布时间：2026-11-13 来源：国家能源局 大 中 小",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "70328407491c",
+   "title": "我国牵头的虚拟电厂一次调频国际标准正式立项 记者今天了解到，我国牵头提出的虚拟电厂国际标准提案，近日在国际电工委员会（IEC）成功立项。这项名为《虚拟电厂 第4部分：一次调频功能要求与规范》的国际标准，聚焦虚拟电厂快速稳定电网的核心能力，联合多国专家制定全球统一技术准则，标志着我国在虚拟电厂国际标准化领域迈出关键一步。",
+   "url": "http://www.cnenergynews.cn/article/4U0jLQwxxLO",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "电网与技术",
+   "score": 9.1,
+   "summary": "",
+   "why": "",
+   "terms": [
+    {
+     "term": "虚拟电厂",
+     "explain": "用软件把分散的充电桩、空调、储能、小电站等聚合起来，像一座电厂一样统一参与调度和市场交易。"
+    },
+    {
+     "term": "调频",
+     "explain": "让电网频率稳定在50赫兹附近。用电和发电不平衡时频率会偏移，需要电源在秒级快速调整出力。"
+    }
+   ],
+   "watch_hit": [
+    "虚拟电厂"
+   ],
+   "coverage": 3,
+   "also": [
+    "中国新闻网",
+    "新浪网"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "虚拟电厂与需求响应"
+   ],
+   "topic_info": [
+    {
+     "name": "虚拟电厂与需求响应",
+     "prior": 4,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "77981781ba74",
+   "title": "国内首款20公斤级氢能动力无人直升机研制成功",
+   "url": "https://www.stdaily.com/web/gdxw/2026-11/13/content_612980.html",
+   "source": "搜索·核电氢能",
+   "origin": "中国科技网",
+   "published": "2026-11-13T11:29:34+00:00",
+   "category": "新能源与储能",
+   "score": 8.42,
+   "summary": "11月13日，记者从大连理工大学获悉，该校化工学院毛庆副教授团队成功研制国内首款20公斤级氢能动力无人直升机，同步布局纯氢燃料电池与氢—锂混动两条技术路线，为低空经济提供了新的绿色动力方案。 毛庆介绍，该系列目前推出两款作业机型：搭载5升、",
+   "why": "",
+   "terms": [
+    {
+     "term": "氢能",
+     "explain": "用电解水等方式制取的氢气，可作为储能介质和工业燃料，绿电制的氢称为“绿氢”。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 5,
+   "also": [
+    "Sohu",
+    "凤凰网科技",
+    "新浪财经_金融信息服务商",
+    "驱动之家"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "7c7564da1b46",
+   "title": "两部门发布“十五五”实施方案 新型储能产业迈向市场化发展新阶段",
+   "url": "https://finance.sina.cn/2026-11-14/detail-iniyrprm0709715.d.html?vt=4&cid=76729&node_id=76729",
+   "source": "搜索·电力政策",
+   "origin": "新浪财经_金融信息服务商",
+   "published": "2026-11-13T17:39:54+00:00",
+   "category": "政策法规",
+   "score": 7.83,
+   "summary": "11月13日，国家发展改革委、国家能源局对外发布《“十五五”新型储能实施方案》（以下简称《实施方案》），围绕构建新型储能多元应用场景、支持新型储能科技创新攻关、完善新型储能行业管理体系等方面明确16项具体举措。《实施方案》明确提出，到203",
+   "why": "",
+   "terms": [
+    {
+     "term": "新型储能",
+     "explain": "除抽水蓄能外的储能，主要是锂电池储能，还有压缩空气、液流电池、钠离子电池等。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "新浪财经"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "正式文件",
+   "deadline": null,
+   "topics": [
+    "新型储能政策与项目"
+   ],
+   "topic_info": [
+    {
+     "name": "新型储能政策与项目",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "eb1160009aac",
+   "title": "融资客加仓！华电能源20个交易日杠杆资金增幅超3998%，算力概念股受追捧",
+   "url": "https://m.sohu.com/a/1101519104_237556?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·发电集团",
+   "origin": "Sohu",
+   "published": "2026-11-14T06:20:19+00:00",
+   "category": "市场与电价",
+   "score": 7.69,
+   "summary": "11月以来，A股市场杠杆资金出现企稳迹象。 Wind数据显示，11月4日至11月12日的7个交易日中，2个交易日两融的融资净买入额下降，其余5个交易日融资净买入额呈现上升态势。 在整个市场融资客信心恢复、杠杆资金企稳的背景下，杠杆资金也进行",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "算电协同"
+   ],
+   "topic_info": [
+    {
+     "name": "算电协同",
+     "prior": 0,
+     "last": null
+    }
+   ]
+  },
+  {
+   "id": "03616ebd128b",
+   "title": "华能国际脱水研报：第三季度风光利润超过煤电，长协电价与新增装机决定盈利修复空间",
+   "url": "http://stock.10jqka.com.cn/20261113/c681812753.shtml",
+   "source": "搜索·电价",
+   "origin": "同花顺财经",
+   "published": "2026-11-13T10:30:51+00:00",
+   "category": "市场与电价",
+   "score": 7.53,
+   "summary": "本期梳理 东方证券（600958） 、 国金证券（600109） 、开源证券于2026年10月28—30日发布的三篇 华能国际（600011） 三季报点评，聚焦煤电盈利下滑、风光业务贡献、2027年电价预期及券商预测分歧。 三家券商均认为，",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "华能"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "煤电与煤价"
+   ],
+   "topic_info": [
+    {
+     "name": "煤电与煤价",
+     "prior": 1,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "711359bbc183",
+   "title": "​极狐发布“极+时代”换电生态，两款新车上市，租电价5.2万元起",
+   "url": "https://i.gasgoo.com/news/70477996.html",
+   "source": "搜索·电价",
+   "origin": "盖世汽车社区",
+   "published": "2026-11-14T04:15:24+00:00",
+   "category": "市场与电价",
+   "score": 7.51,
+   "summary": "11月13日晚，极狐汽车正式发布“极+时代”全民换电生态，并同步推出贝塔S3 535 ULTRA+激光换电版、贝塔T1换电版两款新车，将换电车型的购车门槛进一步拉低至5万元级。 图片来源：极狐汽车 其中，贝塔T1换电版推出两款车型，车电分离",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "7f3b6d7a2dda",
+   "title": "青海电力现货市场10月结算试运行情况：发电侧出清均价155元/兆瓦时",
+   "url": "https://news.mysteel.com/a/26111314/779F40F9491B4626.html",
+   "source": "搜索·电力市场",
+   "origin": "钢铁网",
+   "published": "2026-11-13T06:06:00+00:00",
+   "category": "市场与电价",
+   "score": 7.2,
+   "summary": "11月11日，青海电力交易中心通报青海电力现货市场10月结算试运行情况，本次结算试运行发电侧除直流配套电源及水电外全部参与现货市场，其中发电侧11台火电机组、104家风电、299家光伏“报量报价”参与现货市场，其余新能源主体视自身条件“报量",
+   "why": "",
+   "terms": [
+    {
+     "term": "电力现货市场",
+     "explain": "像菜市场一样按小时甚至每15分钟买卖电，价格随供需实时变化；用电紧张时电价高，新能源大发时电价可能接近零甚至为负。"
+    },
+    {
+     "term": "电力交易中心",
+     "explain": "组织电力市场交易的机构，有北京、广州两个国家级中心和各省交易中心。"
+    }
+   ],
+   "watch_hit": [
+    "电力现货"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "电力现货市场"
+   ],
+   "topic_info": [
+    {
+     "name": "电力现货市场",
+     "prior": 1,
+     "last": "2026-11-12"
+    }
+   ]
+  },
+  {
+   "id": "de39502d6e07",
+   "title": "租电价低至5.2万元！极狐加码换电车型，宁德时代计划2027年建成6000座换电站",
+   "url": "https://emwap.eastmoney.com/a/202611133931021388.html",
+   "source": "搜索·电价",
+   "origin": "东方财富",
+   "published": "2026-11-13T22:54:35+00:00",
+   "category": "市场与电价",
+   "score": 7.07,
+   "summary": "每经北京11月13日电（记者刘曦）11月13日晚间，极狐贝塔S3 535 ULTRA+激光换电版正式上市，租电价格为7.88万元；极狐贝塔T1同步推出换电版车型，租电价格为5.2万至6万元。 作为极狐与 宁德时代 合作推出的首款换电车型，极",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "c022aa2a1f49",
+   "title": "从预测风雨到决定电价：气象AI怎样改变绿电生意？",
+   "url": "https://user.guancha.cn/main/content?id=1767171",
+   "source": "搜索·电价",
+   "origin": "风闻",
+   "published": "2026-11-13T21:51:49+00:00",
+   "category": "市场与电价",
+   "score": 6.98,
+   "summary": "关注“中国制造”的星辰大海 11-07 15:29 前段时间的上海外滩大会上，一个中国的气象模型引起了人们的注意： 这个名叫“远景天机”的气象模型，可实现分钟级预测全球未来45天内任意区域、5公里10分钟分辨率的气象情况。凭借以上优势，其与",
+   "why": "",
+   "terms": [
+    {
+     "term": "绿电",
+     "explain": "风电、光伏等可再生能源发的电，在绿电交易中购买时附带环境属性证明。"
+    }
+   ],
+   "watch_hit": [],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "绿证绿电"
+   ],
+   "topic_info": [
+    {
+     "name": "绿证绿电",
+     "prior": 5,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "8a91b3db592b",
+   "title": "太阳能：公司预计到2026年底运营光伏装机规模8.5GW",
+   "url": "http://stock.stockstar.com/IG2026111300013984.shtml",
+   "source": "搜索·新能源",
+   "origin": "证券之星",
+   "published": "2026-11-13T01:54:44+00:00",
+   "category": "新能源与储能",
+   "score": 6.8,
+   "summary": "（原标题：太阳能：公司预计到2026年底运营光伏装机规模8.5GW） 人民财讯11月13日电，太阳能近日接受机构调研时表示，公司预计到2026年底运营光伏装机规模8.5GW，较2025年增加18.55%。2026年1―10月，公司新增运营项",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 4,
+   "also": [
+    "Moomoo",
+    "第一财经",
+    "金融界"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "1a0cc45dd2e9",
+   "title": "华能牵头的全球首个风电退役及回收准备国际标准正式发布",
+   "url": "http://www.cnenergynews.cn/article/4U0i4feVZxJ",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "新能源与储能",
+   "score": 6.7,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "华能"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "ad541d6be68d",
+   "title": "华能400MW海上光伏项目，进入施工实施阶段",
+   "url": "https://m.sohu.com/a/1101470117_122014422?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·发电集团",
+   "origin": "Sohu",
+   "published": "2026-11-14T04:03:06+00:00",
+   "category": "新能源与储能",
+   "score": 6.49,
+   "summary": "据华能江苏清能消息，11月11日，华能灌云400兆瓦海上光伏项目启动会在华能江苏清洁能源分公司连云港区域中心站顺利召开，标志着该项目由施工准备阶段正式进入施工实施阶段。 会上，项目施工单位、设计单位、监理单位依次汇报前期重点工作完成情况、施",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "华能"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "f32c4b40e509",
+   "title": "中国牵头虚拟电厂国际标准立项 为电网装“减震器”",
+   "url": "https://finance.sina.cn/2026-11-13/detail-iniyqwtt0900645.d.html?vt=4",
+   "source": "搜索·虚拟电厂",
+   "origin": "新浪财经",
+   "published": "2026-11-14T03:22:30+00:00",
+   "category": "电网与技术",
+   "score": 6.44,
+   "summary": "中新社北京11月13日电 (记者 刘亮)中国国家市场监管总局13日公布，中国牵头的虚拟电厂一次调频国际标准提案近日在国际电工委员会成功立项。该国际标准，聚焦虚拟电厂快速稳定电网的核心能力，联合多国专家制定全球统一技术准则，标志着中国在虚拟电",
+   "why": "",
+   "terms": [
+    {
+     "term": "虚拟电厂",
+     "explain": "用软件把分散的充电桩、空调、储能、小电站等聚合起来，像一座电厂一样统一参与调度和市场交易。"
+    },
+    {
+     "term": "调频",
+     "explain": "让电网频率稳定在50赫兹附近。用电和发电不平衡时频率会偏移，需要电源在秒级快速调整出力。"
+    }
+   ],
+   "watch_hit": [
+    "虚拟电厂"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [
+    "虚拟电厂与需求响应"
+   ],
+   "topic_info": [
+    {
+     "name": "虚拟电厂与需求响应",
+     "prior": 4,
+     "last": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "id": "1506db738294",
+   "title": "黔西南：依托南方电网“大瓦特”AI探索山区乡镇“算碳”新范式",
+   "url": "https://m.sohu.com/a/1101459922_120578424?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "source": "搜索·电网",
+   "origin": "Sohu",
+   "published": "2026-11-14T03:00:04+00:00",
+   "category": "电网与技术",
+   "score": 6.41,
+   "summary": "11月9日，贵州省黔西南州发展改革委发函，支持州级“双碳”服务中心(南方电网贵州兴义供电局)在晴隆县鸡场镇开展全镇域碳盘查试点，借助南方电网“大瓦特”人工智能平台，探索可复制的镇域尺度碳核算模式，助力晴隆鸡场美丽乡村智慧能源零碳示范区建设。",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "南方电网"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "a55116087fea",
+   "title": "“碳”索绿色发展新路径！一文读懂正泰安能综合能源服务示范项目",
+   "url": "http://www.cnenergynews.cn/article/4U0rwKgquTF",
+   "source": "中国能源新闻网",
+   "origin": "中国能源新闻网",
+   "published": null,
+   "category": "综合",
+   "score": 6.4,
+   "summary": "",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 2,
+   "also": [
+    "世纪新能源网"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "f3815b13fe28",
+   "title": "南方电网：新能源车用电增43% 电池材料增速破20%",
+   "url": "https://chejiahao.autohome.com.cn/info/26878613",
+   "source": "搜索·电网",
+   "origin": "汽车之家",
+   "published": "2026-11-14T02:44:47+00:00",
+   "category": "新能源与储能",
+   "score": 6.39,
+   "summary": "IT之家 11 月 14 日消息，今年 1 至 10 月，南方五省区新能源汽车产业链售电量占全网售电量的 17.1%，同比增长 14.8%，对全网用电增量的贡献率达到 34.1%。每新增 3 度电，就有 1 度多流向新能源汽车产业链。 IT",
+   "why": "",
+   "terms": [],
+   "watch_hit": [
+    "南方电网"
+   ],
+   "coverage": 1,
+   "also": [],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  },
+  {
+   "id": "9ffa15e34482",
+   "title": "神雾节能：控股子公司签订5.04亿元储能设备采购合同",
+   "url": "https://wap.cj.sina.cn/7x24/5213209",
+   "source": "搜索·储能",
+   "origin": "新浪网",
+   "published": "2026-11-13T11:26:06+00:00",
+   "category": "新能源与储能",
+   "score": 6.01,
+   "summary": "神雾节能：控股子公司签订5.04亿元储能设备采购合同_7x24快讯_新浪财经 新浪财经客户端 你永远在大事现场 打开APP 神雾节能：控股子公司签订5.04亿元储能设备采购合同 神雾节能公告，公司控股子公司联合立本此前与河南同力组成的联合体",
+   "why": "",
+   "terms": [],
+   "watch_hit": [],
+   "coverage": 3,
+   "also": [
+    "东方财富",
+    "观点网"
+   ],
+   "importance": null,
+   "lang": "zh",
+   "policy_type": "",
+   "deadline": null,
+   "topics": [],
+   "topic_info": []
+  }
+ ],
+ "policy": [
+  {
+   "id": "c1145b2d5c9a",
+   "date": "2026-11-14",
+   "title": "关于印发《“十五五”新型储能实施方案》的通知(发改能源〔2026〕1565号)",
+   "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202611/t20261113_1408810.html",
+   "origin": "国家发改委·政策通知",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家发展改革委  国家能源局关于印发 《“十五五”新型储能实施方案》.pdf 《“十五五”新型储能实施方案》.ofd",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "a1b44408c8cb",
+   "date": "2026-11-14",
+   "title": "国家能源局有关负责同志就《“十五五”新型储能实施方案》答记者问",
+   "url": "https://www.nea.gov.cn/20261113/6a2b2141529448ddb8650df1784abe73/c.html",
+   "origin": "能源局·解读",
+   "policy_type": "政策解读",
+   "deadline": "",
+   "summary": "近日，国家发展改革委、国家能源局联合印发《“十五五”新型储能实施方案》（以下简称《实施方案》）。记者采访了国家能源局有关负责同志。 一、《实施方案》出台的背景是什么？ 答： 党中央、国务院高度重视新型储能发展，新型储能发展连续三年写入《政府",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "a1a59f552e1d",
+   "date": "2026-11-14",
+   "title": "一图读懂 | “十五五”新型储能实施方案",
+   "url": "https://www.nea.gov.cn/20261113/e01150d49f6f4a04ad851cb40887401d/c.html",
+   "origin": "能源局·解读",
+   "policy_type": "政策解读",
+   "deadline": "",
+   "summary": "一图读懂 | “十五五”新型储能实施方案---国家能源局 您当前位置： 首页 > 正文 一图读懂 | “十五五”新型储能实施方案 发布时间：2026-11-13 来源：国家能源局 大 中 小",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "7c7564da1b46",
+   "date": "2026-11-14",
+   "title": "两部门发布“十五五”实施方案 新型储能产业迈向市场化发展新阶段",
+   "url": "https://finance.sina.cn/2026-11-14/detail-iniyrprm0709715.d.html?vt=4&cid=76729&node_id=76729",
+   "origin": "新浪财经_金融信息服务商",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "11月13日，国家发展改革委、国家能源局对外发布《“十五五”新型储能实施方案》（以下简称《实施方案》），围绕构建新型储能多元应用场景、支持新型储能科技创新攻关、完善新型储能行业管理体系等方面明确16项具体举措。《实施方案》明确提出，到203",
+   "in_brief": true,
+   "official": false
+  },
+  {
+   "id": "2cccec81ddb2",
+   "date": "2026-11-14",
+   "title": "国家发展改革委 国家能源局关于印发《“十五五”新型储能实施方案》的通知",
+   "url": "https://www.21jingji.com/article/20261113/herald/2c421624916b47e2fbcd90e9c71ea150.html",
+   "origin": "21财经",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家发展改革委 国家能源局关于印发 《“十五五”新型储能实施方案》的通知 各省、自治区、直辖市及新疆生产建设兵团发展改革委、能源局，北京市城市管理委员会，国家能源局各派出机构，有关中央企业： 现将《“",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "79ad1bc01a92",
+   "date": "2026-11-14",
+   "title": "宁夏电力交易中心发布《关于电力市场规则体系下现货市场实施细则和电力调频辅助服务市场实施细则的公示》",
+   "url": "https://mpower.in-en.com/html/power-2480932.shtml",
+   "origin": "国际电力网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "f9390ae059af",
+   "date": "2026-11-14",
+   "title": "新型储能迈入市场化新阶段，“十五五”方案划定3亿千瓦发展目标",
+   "url": "https://k.sina.com.cn/article_1926909715_72da4f1302702ldf0.html?from=finance",
+   "origin": "手机新浪网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "11月13日，国家发改委、国家能源局联合印发《“十五五”新型储能实施方案》（下称《方案》），明确到2030年，新型储能由规模化发展阶段步入市场化发展阶段，全国新型储能装机规模达到3亿千瓦，平均储能时长",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "c23246342e14",
+   "date": "2026-11-14",
+   "title": "【两部门：#加大新型储能产业支持力度#】11月13日，国家发展改革委、国家能源局印发《“十五五”新型储能实施方案》。其中提出，引导民营企业与高校、科研院所等协同创新，支持民营企业参与新型储能领域科技重大专项评选和投资新型储能。用好新型政策性金融工具、",
+   "url": "https://www.sina.cn/news/detail/5364915720427846.html",
+   "origin": "新浪网",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "【两部门：#加大新型储能产业支持力度#】11月13日，国家发展改革委、国家能源局印发《“十五五”新型储能实施方案》。其中提出，引导民营企业与高校、科研院所等协同创新，支持民营企业参与新型储能领域科技重",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "82ccc5260c2c",
+   "date": "2026-11-14",
+   "title": "“十五五”新型储能实施方案印发：2030年新能源基地配储50-60GW，鼓励新能源配储、一体化参与市场",
+   "url": "https://m.sohu.com/a/1101119645_703050?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+   "origin": "Sohu",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "10月13日，国家发展改革委 国家能源局关于印发《“十五五”新型储能实施方案》的通知发布。 通知指出，到2030 年，新型储能由规模化发展阶段步入市场化发展阶段， 全国新型储能装机规模达到 3 亿千瓦",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "f40797c8505d",
+   "date": "2026-11-14",
+   "title": "平房区“煤改电”遗留难题今年迎专项方案，记者发现有的地方已享受优惠，有的仍得烧煤",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWGtOZElnOUdkSF9fUkpwdElnR1IxbGZkSGZodExLRlN3OWd4ZDc2Nmh3Y1JBSjhicDh3TFBPenpzbGdGYmx0d0xEeEdjX0pNMDNZcFVfYzk3TWRucjlxYWQ5Z3hkS3FtUVo0b3IxSXU4T2dLNWxjZmlqcTdldWM1RERra0J1LU53?oc=5",
+   "origin": "Sohu",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "",
+   "in_brief": false,
+   "official": false
+  }
+ ],
+ "announcements": [
+  {
+   "id": "706479c38a6b",
+   "code": "001258",
+   "name": "立新能源",
+   "title": "新疆立新能源股份有限公司关于控股子公司投资建设250万千瓦风电项目的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-13/1225669694.PDF",
+   "published": "2026-11-12T16:00:00+00:00",
+   "origin": "关键词·风电",
+   "level": "important"
+  },
+  {
+   "id": "cfbb4b8b6605",
+   "code": "00686",
+   "name": "北京能源国际",
+   "title": "(1) 有关中国河北省沧州市东光县于桥镇50兆瓦风电场项目，以及中国河北省沧州市东光县找王镇50兆瓦风电场项目相关设施之工程、采购及建设合约之主要交易；及(2) 股东特别大会通告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225669652.PDF",
+   "published": "2026-11-12T10:46:09+00:00",
+   "origin": "关键词·风电",
+   "level": "important"
+  },
+  {
+   "id": "242b028faba4",
+   "code": "300040",
+   "name": "九洲集团",
+   "title": "关于部分新能源电站收到可再生能源发电补贴的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225668582.PDF",
+   "published": "2026-11-12T09:12:09+00:00",
+   "origin": "关键词·电站",
+   "level": "important"
+  },
+  {
+   "id": "6354cffaa623",
+   "code": "300423",
+   "name": "昇辉科技",
+   "title": "昇辉科技关于新能源换电站建设业务中标暨签署协议的公告",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-12/1225668285.PDF",
+   "published": "2026-11-12T08:30:26+00:00",
+   "origin": "关键词·电站",
+   "level": "important"
+  },
+  {
+   "id": "ad18d7551f54",
+   "code": "600011",
+   "name": "华能国际",
+   "title": "华能国际关于对石岛湾核电增资的进一步资料",
+   "url": "http://static.cninfo.com.cn/finalpage/2026-11-13/1225668781.PDF",
+   "published": "2026-11-12T16:00:00+00:00",
+   "origin": "关注股票",
+   "level": "other",
+   "stock": "sh600011"
+  }
+ ],
+ "key_numbers": [],
+ "indicators": [
+  {
+   "name": "全国碳市场收盘价",
+   "unit": "元/吨",
+   "source": "全国碳排放权交易市场每日收盘价（新闻报道）",
+   "freq": "day",
+   "date": "2026-11-12",
+   "value": 92.41,
+   "prev": 91.93,
+   "change": 0.48,
+   "change_pct": 0.52,
+   "core": true,
+   "series": [
+    [
+     "2026-10-13",
+     98.25
+    ],
+    [
+     "2026-10-14",
+     98.14
+    ],
+    [
+     "2026-10-15",
+     97.18
+    ],
+    [
+     "2026-10-16",
+     97.56
+    ],
+    [
+     "2026-10-19",
+     97.85
+    ],
+    [
+     "2026-10-21",
+     98.15
+    ],
+    [
+     "2026-10-22",
+     96.66
+    ],
+    [
+     "2026-10-23",
+     95.79
+    ],
+    [
+     "2026-10-26",
+     95.08
+    ],
+    [
+     "2026-10-27",
+     94.92
+    ],
+    [
+     "2026-10-29",
+     95.53
+    ],
+    [
+     "2026-10-30",
+     95.08
+    ],
+    [
+     "2026-11-02",
+     95.32
+    ],
+    [
+     "2026-11-05",
+     94.7
+    ],
+    [
+     "2026-11-06",
+     94.4
+    ],
+    [
+     "2026-11-09",
+     93.36
+    ],
+    [
+     "2026-11-10",
+     91.93
+    ],
+    [
+     "2026-11-12",
+     92.41
+    ]
+   ]
+  },
+  {
+   "name": "布伦特原油",
+   "unit": "美元/桶",
+   "source": "新浪财经 国际期货连续合约",
+   "freq": "day",
+   "date": "2026-11-14",
+   "value": 96.366,
+   "prev": 96.215,
+   "change": 0.151,
+   "change_pct": 0.16,
+   "core": true,
+   "series": [
+    [
+     "2026-11-12",
+     94.139
+    ],
+    [
+     "2026-11-13",
+     96.215
+    ],
+    [
+     "2026-11-14",
+     96.366
+    ]
+   ]
+  },
+  {
+   "name": "全社会用电量累计同比",
+   "unit": "%",
+   "source": "国家能源局月度发布（新闻报道）",
+   "freq": "month",
+   "date": "2026-09",
+   "value": 3.9,
+   "prev": null,
+   "change": null,
+   "change_pct": null,
+   "core": true,
+   "series": [
+    [
+     "2026-09",
+     3.9
+    ]
+   ]
+  },
+  {
+   "name": "美国天然气",
+   "unit": "美元/百万英热",
+   "source": "新浪财经 国际期货连续合约",
+   "freq": "day",
+   "date": "2026-11-14",
+   "value": 3.616,
+   "prev": 3.701,
+   "change": -0.085,
+   "change_pct": -2.3,
+   "core": true,
+   "series": [
+    [
+     "2026-11-12",
+     3.667
+    ],
+    [
+     "2026-11-13",
+     3.701
+    ],
+    [
+     "2026-11-14",
+     3.616
+    ]
+   ]
+  }
+ ],
+ "source_stats": {
+  "能源局·通知": 3,
+  "能源局·公告": 2,
+  "能源局·最新文件": 4,
+  "能源局·解读": 2,
+  "能源局·项目核准": 0,
+  "能源局·工作动态": 2,
+  "能源局·能源要闻": 4,
+  "国家发改委·新闻发布": 0,
+  "国家发改委·政策通知": 1,
+  "生态环境部": 0,
+  "中国能源新闻网": 55,
+  "搜索·电力政策": 11,
+  "搜索·电价": 17,
+  "搜索·电力市场": 10,
+  "搜索·储能": 76,
+  "搜索·新能源": 17,
+  "搜索·电网": 14,
+  "搜索·发电集团": 52,
+  "搜索·核电氢能": 41,
+  "搜索·虚拟电厂": 9,
+  "搜索·北极星电力网": 1,
+  "Global·Power": 43,
+  "Utility Dive": 10,
+  "政策·广东": 1,
+  "政策·山东": 0,
+  "政策·江苏": 3,
+  "政策·浙江": 0,
+  "政策·内蒙古": 1
+ },
+ "source_alerts": [
+  "能源局·项目核准",
+  "国家发改委·新闻发布",
+  "生态环境部"
+ ],
+ "notes": [
+  "AI 解读不可用，今天为规则模式（查看日志中“跳过/失败”原因）",
+  "连续 3 天无数据的来源：能源局·项目核准、国家发改委·新闻发布、生态环境部"
+ ],
+ "article_stats": {
+  "decoded": 42,
+  "decode_failed": 0,
+  "text": 44
+ },
+ "site_url": "",
+ "usage": {
+  "total": 0,
+  "input": 0,
+  "output": 0,
+  "cost_usd": 0,
+  "calls": 1
+ },
+ "schema": 1
+}

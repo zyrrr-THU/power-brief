@@ -1,0 +1,130 @@
+# PowerBrief 电力行业每日简报 —— 默认设置
+# 网页“设置”页的修改保存在 settings.json，会覆盖这里的同名项；这里改的是默认值。
+# 下次运行即生效。密钥不要写在这里，写在 GitHub Secrets（本机手动运行时写在 .env）。
+
+run:
+  # 由谁来跑每日任务：github = GitHub Actions 云端定时运行（推荐）；local = 本机
+  # 不是这里指定的一方运行时会自动跳过（加 --force 可强制），避免同一天推送两次
+  mode: github
+  timezone_offset_hours: 8        # 简报日期按北京时间计算
+  lookback_hours: 36              # 抓取最近多少小时的新闻
+  max_items: 22                   # 每日精选条数
+  max_per_category: 6             # 每个分类最多几条，保证覆盖面
+
+ai:
+  enabled: true                   # false = 不用大模型，只做规则分类 + 术语词典解释
+  # 依次尝试，前一个不可用（没装/没 key/报错）就换下一个；全部失败自动降级为无 AI 模式
+  # claude_cli 只能在已登录 Claude Code 的电脑上用，云端不可用
+  providers: [deepseek, claude]
+  max_candidates: 40              # 送给大模型挑选的候选新闻条数
+  provider_settings:
+    claude_cli:                   # 本机已登录的 Claude Code 命令行，用订阅额度，不需要 API key
+      type: claude_cli
+      command: claude
+      model: sonnet               # 可填 sonnet / opus / haiku
+      timeout_seconds: 300
+    claude:
+      type: anthropic
+      model: claude-opus-5-5
+      effort: low                 # low / medium / high，越高越贵
+      api_key_env: ANTHROPIC_API_KEY
+    deepseek:
+      type: openai_compatible
+      base_url: https://api.deepseek.com
+      model: deepseek-chat
+      api_key_env: DEEPSEEK_API_KEY
+    openai:
+      type: openai_compatible
+      base_url: https://api.openai.com/v1
+      model: gpt-5-mini
+      api_key_env: OPENAI_API_KEY
+    qwen:
+      type: openai_compatible
+      base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model: qwen-plus
+      api_key_env: DASHSCOPE_API_KEY
+    kimi:
+      type: openai_compatible
+      base_url: https://api.moonshot.cn/v1
+      model: moonshot-v1-32k
+      api_key_env: MOONSHOT_API_KEY
+    zhipu:
+      type: openai_compatible
+      base_url: https://open.bigmodel.cn/api/paas/v4
+      model: glm-4-flash
+      api_key_env: ZHIPU_API_KEY
+
+# 用量统计：api = 按实际 API 费用统计（云端用 DeepSeek/Claude API 时）；
+# pro / max5 / max20 = 本机用 Claude 订阅时，估算约占套餐的比例
+usage:
+  plan: api
+
+notify:
+  # 推送渠道，可多选；对应密钥写在 .env（见 .env.example）。留空 [] 表示不推送
+  channels: [pushplus]
+  # 可选：pushplus serverchan wecom feishu dingtalk bark telegram email
+  title_prefix: "⚡电力日报"
+
+publish:
+  # 完整简报网页放哪里：github_pages = 推送到 GitHub 仓库并由 Pages 发布（手机可直接打开）
+  #                     folder       = 复制到下面的同步文件夹（OneDrive/坚果云等）
+  #                     none         = 只在本项目 docs/ 文件夹里生成
+  target: github_pages
+  site_url: ""                    # Pages 网址，如 https://你的用户名.github.io/power-brief/ ，推送消息里的“完整简报”链接
+  folder_path: ""                 # target=folder 时的目标文件夹
+  git_push: true                  # target=github_pages 且本机运行时，是否自动 git commit + push
+
+# 政策雷达：为这些省份自动增加“发改委/能源局/电力交易中心 + 电力政策”搜索
+policy_provinces: [广东, 山东, 江苏, 浙江, 内蒙古]
+
+# 数据看板：新闻里抽到的数字，名称含左边任一别名就归入右边的指标并画成趋势线
+indicator_aliases:
+  秦皇岛5500动力煤价格: [秦皇岛5500, 秦港5500, 5500大卡]
+  电煤价格指数CECI: [CECI, 电煤价格指数, 电煤采购价格]
+  广东现货均价: [广东现货, 广东电力现货]
+  山东现货均价: [山东现货, 山东电力现货]
+  全国新增光伏装机: [新增光伏装机, 光伏新增装机]
+  全国新增风电装机: [新增风电装机, 风电新增装机]
+  全国发电量: [全国发电量, 规上工业发电量]
+
+# 阅读反馈：网页上 👍/👎 后点“提交反馈”。填了 GitHub 仓库（如 yourname/power-brief）时通过 Issue 回传，
+# 否则网页会下载 feedback.json，把它放进 state/feedback_inbox/ 即可
+feedback:
+  github_repo: ""
+
+# 运行监控：在 10:30 检查当天是否已成功推送，未推送则发提醒（本机计划任务和 GitHub 都会用）
+monitor:
+  check_time: "10:30"
+
+# 关注清单：标题含这些词的新闻置顶并标★（企业、省份、主题都可以）
+watchlist:
+  - 国家电网
+  - 南方电网
+  - 国家电投
+  - 华能
+  - 三峡
+  - 电力现货
+  - 虚拟电厂
+  - 容量电价
+  - 绿证
+
+# 分类规则（无 AI 模式用；AI 模式下作为初始分类）。按顺序匹配，先命中先归类
+categories:
+  - name: 政策法规
+    keywords: [国家能源局, 发改委, 发展改革委, 通知, 办法, 规划, 意见, 方案, 政策, 印发, 征求意见, 细则, 条例, 国务院, 生态环境部]
+  - name: 市场与电价
+    keywords: [电价, 电力市场, 现货, 交易, 中长期, 辅助服务, 容量, 绿电, 绿证, 碳市场, 碳价, 出清, 结算, 用电量, 负荷]
+  - name: 新能源与储能
+    keywords: [光伏, 风电, 储能, 氢能, 新能源, 海上风电, 分布式, 电池, 核电, 抽水蓄能, 风光]
+  - name: 电网与技术
+    keywords: [电网, 特高压, 输电, 配电, 变电, 智能电网, 新型电力系统, 虚拟电厂, 微电网, 算力, 数据中心, 并网]
+  - name: 企业动态
+    keywords: [集团, 公司, 股份, 净利, 营收, 签约, 中标, 招标, 投产, 开工, 收购, 上市, 业绩, 季度]
+  - name: 国际
+    keywords: [国际, 全球, 欧洲, 美国, 欧盟, 日本, 印度, 中东, COP, IEA, grid, power, electricity]
+
+# 降权词：标题含这些词的新闻排序靠后（会议学习、软文、金融信托等与行业关系不大的内容）
+penalty_keywords: [党组, 理论学习, 学习贯彻, 主题教育, 党建, 致歉, 信托, 招聘, 荣膺, 荣获, 圆满完成, 即将召开, 研讨会, 论坛, 会见, 会谈, 履新, 培训, 综述]
+
+# 相关性过滤：综合类来源（发改委、生态环境部等）只保留含这些词的新闻
+relevance_keywords: [电, 能源, 煤, 光伏, 风电, 储能, 核电, 核能, 氢, 碳排放, 碳市场, 碳达峰, 碳中和, 低碳, 电网, 新能源, 绿证, 负荷, 算力, 发电, 气电, 水电, power, grid, electric, energy]

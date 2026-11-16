@@ -1,0 +1,14 @@
+# 密钥与本机文件，不上传 GitHub
+.env
+__pycache__/
+*.pyc
+logs/
+.venv/
+.claude/
+_历史版本/
+_更新包/
+_backup_before_*/
+state/config_backups/
+state/run_current.log
+state/last_prompt_sample.txt
+state/last_push_preview.html

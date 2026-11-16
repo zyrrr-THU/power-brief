@@ -1,0 +1,58 @@
+# 新闻来源。tier 越高越权威（3=官方，2=行业媒体，1=聚合搜索），影响排序。
+# type:
+#   gnews    : Google 新闻关键词搜索 RSS（覆盖面最广，含地方和中小企业新闻）
+#   rss      : 标准 RSS/Atom 订阅地址
+#   html_list: 网站列表页，自动提取带日期的文章链接
+#   nea_json : 国家能源局栏目数据（ds 为栏目编号，取自官网首页源码中的 datasource:xxxx）
+# filter: 中文来源默认只保留与电力能源相关的标题；filter: none 关闭过滤
+# policy: true 表示政策类来源，进入“政策雷达”
+# enabled: false 可临时关闭某个来源
+# 另外 config.yaml 的 policy_provinces 会自动为每个省加一个政策搜索
+
+sources:
+  # —— 国家能源局（官网栏目数据） ——
+  - {name: 能源局·通知, type: nea_json, ds: a7d0c81b28dd427bb8045c10d7c7d373, tier: 3, policy: true, filter: none}
+  - {name: 能源局·公告, type: nea_json, ds: a2a4649bb15f42b0b877340eb2fd0d31, tier: 3, policy: true, filter: none}
+  - {name: 能源局·最新文件, type: nea_json, ds: 3a7ee16c49a34a5f95999f5103e9d10b, tier: 3, policy: true, filter: none}
+  - {name: 能源局·解读, type: nea_json, ds: 312801f90942440ebeb147653e50a73f, tier: 3, policy: true, filter: none}
+  - {name: 能源局·项目核准, type: nea_json, ds: 6b4ad1ac35f8496b80f9e33b2b4bdc81, tier: 3, policy: true, filter: none}
+  - {name: 能源局·工作动态, type: nea_json, ds: 00dcdbbb03e0426996be0e8193fd7176, tier: 3}
+  - {name: 能源局·能源要闻, type: nea_json, ds: 681dc3338e8440eb8fa9819c11560e9c, tier: 3}
+  - name: 国家发改委·新闻发布
+    type: html_list
+    url: https://www.ndrc.gov.cn/xwdt/xwfb/
+    tier: 3
+    filter: power
+  - name: 国家发改委·政策通知
+    type: html_list
+    url: https://www.ndrc.gov.cn/xxgk/zcfb/tz/
+    tier: 3
+    filter: power
+    policy: true
+  - name: 生态环境部
+    type: html_list
+    url: https://www.mee.gov.cn/ywdt/hjywnews/
+    tier: 3
+    filter: power
+  - name: 中国能源新闻网
+    type: html_list
+    url: http://www.cnenergynews.cn/
+    tier: 2
+    link_contains: cnenergynews.cn/article
+    filter: power
+
+  # —— Google 新闻关键词（中文） ——
+  - {name: 搜索·电力政策, type: gnews, query: "电力 政策 OR 通知 OR 印发", tier: 1}
+  - {name: 搜索·电价, type: gnews, query: "电价", tier: 1}
+  - {name: 搜索·电力市场, type: gnews, query: "电力现货 OR 电力市场 OR 电力交易", tier: 1}
+  - {name: 搜索·储能, type: gnews, query: "储能 项目 OR 政策", tier: 1}
+  - {name: 搜索·新能源, type: gnews, query: "光伏 OR 风电 装机 OR 并网", tier: 1}
+  - {name: 搜索·电网, type: gnews, query: "国家电网 OR 南方电网 OR 特高压", tier: 1}
+  - {name: 搜索·发电集团, type: gnews, query: "华能 OR 大唐 OR 华电 OR 国家能源集团 OR 国家电投 OR 三峡集团", tier: 1}
+  - {name: 搜索·核电氢能, type: gnews, query: "核电 OR 氢能 OR 抽水蓄能", tier: 1}
+  - {name: 搜索·虚拟电厂, type: gnews, query: "虚拟电厂 OR 新型电力系统 OR 算电协同", tier: 1}
+  - {name: 搜索·北极星电力网, type: gnews, query: "北极星 电力网", tier: 2}
+
+  # —— 国际（英文） ——
+  - {name: Global·Power, type: gnews, query: "power grid OR electricity market", lang: en, tier: 1}
+  - {name: Utility Dive, type: rss, url: "https://www.utilitydive.com/feeds/news/", tier: 2, lang: en}
