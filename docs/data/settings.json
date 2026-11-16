@@ -1,21 +1,18 @@
 {
  "version": "2.0.0",
- "generated": "2026-11-16T07:16:30+00:00",
+ "generated": "2026-11-16T08:29:51+00:00",
  "effective": {
   "config": {
    "run": {
     "mode": "github",
     "timezone_offset_hours": 8,
-    "lookback_hours": 36,
-    "max_items": 22,
-    "max_per_category": 6
+    "lookback_hours": 24,
+    "max_items": 20,
+    "max_per_category": 5
    },
    "ai": {
-    "enabled": true,
-    "providers": [
-     "deepseek",
-     "claude"
-    ],
+    "enabled": false,
+    "providers": [],
     "max_candidates": 40,
     "provider_settings": {
      "claude_cli": {
@@ -1277,7 +1274,19 @@
    }
   }
  },
- "overlay": {},
+ "overlay": {
+  "config": {
+   "ai": {
+    "enabled": false,
+    "providers": []
+   },
+   "run": {
+    "lookback_hours": 24,
+    "max_items": 20,
+    "max_per_category": 5
+   }
+  }
+ },
  "secrets": {
   "ANTHROPIC_API_KEY": false,
   "DEEPSEEK_API_KEY": false,
@@ -1330,22 +1339,21 @@
    "EMAIL_TO"
   ]
  },
- "repo": "",
+ "repo": "zyrrr-THU/power-brief",
  "last_run": {
-  "time": "2026-11-16T07:15:51+00:00",
+  "time": "2026-11-16T08:29:51+00:00",
   "version": "2.0.0",
-  "runner": "local",
-  "trigger": "manual",
-  "run_id": "",
-  "run_url": "",
+  "runner": "github",
+  "trigger": "dispatch",
+  "run_id": "43831473253",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/43831473253",
   "date": "2026-11-16",
   "ok": true,
-  "items": 22,
+  "items": 20,
   "mode": "rule",
   "provider": "",
   "tokens": 0,
   "notes": [
-   "AI 解读不可用，今天为规则模式（查看日志中“跳过/失败”原因）",
    "连续 3 天无数据的来源：能源局·项目核准、国家发改委·新闻发布、生态环境部"
   ],
   "push": "未推送（只更新网页）"
