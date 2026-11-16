@@ -1,0 +1,8 @@
+{
+ "config": {
+  "ai": {
+   "enabled": false,
+   "providers": []
+  }
+ }
+}
