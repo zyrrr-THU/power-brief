@@ -3,6 +3,11 @@
   "ai": {
    "enabled": false,
    "providers": []
+  },
+  "run": {
+   "lookback_hours": 24,
+   "max_items": 20,
+   "max_per_category": 5
   }
  }
 }
