@@ -41,6 +41,16 @@ sources:
     link_contains: cnenergynews.cn/article
     filter: power
 
+  # —— 中国电力新闻网（中国能源传媒集团）各频道：国内电网、发电企业、地方新闻更全；与其他来源报道同一事件的会自动合并 ——
+  - {name: 中电新闻·头条, type: html_list, url: "https://www.cpnn.com.cn/news/xwtt/", link_contains: cpnn.com.cn/news/xwtt/, tier: 2}
+  - {name: 中电新闻·电力, type: html_list, url: "https://www.cpnn.com.cn/news/dianli2023/", link_contains: cpnn.com.cn/news/dianli2023/, tier: 2}
+  - {name: 中电新闻·新能源, type: html_list, url: "https://www.cpnn.com.cn/news/xny/", link_contains: cpnn.com.cn/news/xny/, tier: 2}
+  - {name: 中电新闻·企业, type: html_list, url: "https://www.cpnn.com.cn/news/nyqy/", link_contains: cpnn.com.cn/news/nyqy/, tier: 2}
+  - {name: 中电新闻·地方, type: html_list, url: "https://www.cpnn.com.cn/news/dfny/", link_contains: cpnn.com.cn/news/dfny/, tier: 2}
+  - {name: 中电新闻·行业, type: html_list, url: "https://www.cpnn.com.cn/news/hy/", link_contains: cpnn.com.cn/news/hy/, tier: 2}
+  - {name: 中电新闻·能源监管, type: html_list, url: "https://www.cpnn.com.cn/news/nyjg/", link_contains: cpnn.com.cn/news/nyjg/, tier: 3}
+  - {name: 中电新闻·国际, type: html_list, url: "https://www.cpnn.com.cn/news/gj/", link_contains: cpnn.com.cn/news/gj/, tier: 2}
+
   # —— Google 新闻关键词（中文） ——
   - {name: 搜索·电力政策, type: gnews, query: "电力 政策 OR 通知 OR 印发", tier: 1}
   - {name: 搜索·电价, type: gnews, query: "电价", tier: 1}

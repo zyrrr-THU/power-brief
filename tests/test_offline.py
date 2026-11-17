@@ -335,6 +335,51 @@ def test_announce_parallel_same_as_serial():
     assert [r["origin"] for r in kws] == ["关键词·储能", "关键词·光伏", "关键词·核电"]
 
 
+def test_index_rows_extended(tmp_dir):
+    """索引每条为 [id, 标题, 类别, 摘要, 来源, 关注命中, 分数]；旧数据缺字段时用空值，不报错。"""
+    orig = render.DATA
+    try:
+        render.DATA = tmp_dir / "idx22"
+        render.DATA.mkdir(parents=True, exist_ok=True)
+        util.write_json(render.DATA / "2026-11-15.json", {"date": "2026-11-15", "items": [
+            {"id": "a", "title": "旧条目", "category": "综合"}]})
+        util.write_json(render.DATA / "2026-11-16.json", {"date": "2026-11-16", "items": [
+            {"id": "b", "title": "虚拟电厂新规", "category": "政策法规", "summary": "摘要" * 40, "origin": "能源局",
+             "watch_hit": ["虚拟电厂"], "score": 9.87}]})
+        render.rebuild_index()
+        idx = json.loads((render.DATA / "index.json").read_text(encoding="utf-8"))
+        new, old = idx["days"][0]["items"][0], idx["days"][1]["items"][0]
+        assert new == ["b", "虚拟电厂新规", "政策法规", ("摘要" * 40)[:60], "能源局", ["虚拟电厂"], 9.9]
+        assert old == ["a", "旧条目", "综合", "", "", [], 0.0]
+        assert "onIndex(" in (render.DATA / "index.js").read_text(encoding="utf-8")
+    finally:
+        render.DATA = orig
+
+
+def test_push_watch_section():
+    """推送开头单独列出“你关注的”；没有命中时不出现这一段。"""
+    def brief(hit):
+        return {"highlights": ["要点一"], "items": [
+            {"title": "国家电网发布新规", "url": "https://e.com/1", "category": "政策法规", "origin": "测试",
+             "watch_hit": ["国家电网"] if hit else []},
+            {"title": "其他新闻", "url": "https://e.com/2", "category": "综合", "origin": "测试", "watch_hit": []}]}
+    b = brief(True)
+    html_ = notify.build_html(b)
+    assert "你关注的（1 条）" in html_ and html_.index("你关注的") < html_.index("政策法规")
+    assert "国家电网：[国家电网发布新规](https://e.com/1)" in notify.build_md(b)
+    assert "★ 关注 1 条" in notify.build_text(b)
+    nb = brief(False)
+    assert "你关注的" not in notify.build_html(nb) and "你关注的" not in notify.build_md(nb) and "关注" not in notify.build_text(nb)
+
+
+def test_domestic_sources_in_cloud():
+    """云端版包含中国电力新闻网 8 个频道，均为列表页抓取并限定链接范围。"""
+    src = [s for s in load_yaml("sources.yaml")["sources"] if s["name"].startswith("中电新闻·")]
+    assert len(src) == 8
+    assert all(s["type"] == "html_list" and s["url"].startswith("https://www.cpnn.com.cn/news/")
+               and s["link_contains"].startswith("cpnn.com.cn/news/") and "domestic" not in s for s in src)
+
+
 if __name__ == "__main__":
     import tempfile
 
@@ -349,6 +394,8 @@ if __name__ == "__main__":
     os.chdir(Path(__file__).resolve().parent.parent)
     usage.FILE = tmp / "usage_all.json"   # 自测不写入真实用量记录
     tests = [
+        (test_index_rows_extended, (tmp,)), (test_push_watch_section, ()),
+        (test_domestic_sources_in_cloud, ()),
         (test_parse_json, ()), (test_ai_mode_merge, (patch,)), (test_fallback_to_rule, (patch,)),
         (test_openai_compatible_request, ()), (test_push_length_limits, ()),
         (test_old_data_compat, (tmp,)), (test_same_day_rerun_keeps_items, ()),

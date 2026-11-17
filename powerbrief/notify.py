@@ -39,11 +39,21 @@ def _ind_line(x):
     return f"{x['name']} {_fmt_num(x['value'])}{x['unit']}{ch}"
 
 
+def watch_items(b):
+    """命中关注清单的条目（推送开头单独列出）。"""
+    return [it for it in b.get("items") or [] if it.get("watch_hit")]
+
+
 def build_html(b):
     e = html.escape
     if b.get("alert"):
         return f"<p>{e(b['alert'])}</p>"
     p = [f"<h3>今日三件事</h3><ol>" + "".join(f"<li>{e(h)}</li>" for h in b["highlights"]) + "</ol>"]
+    watched = watch_items(b)
+    if watched:
+        p.append(f"<h3>★ 你关注的（{len(watched)} 条）</h3><ul>" + "".join(
+            f"<li><b>{e('、'.join(it['watch_hit']))}</b>：<a href='{e(it['url'])}'>{e(it['title'])}</a></li>"
+            for it in watched) + "</ul>")
     if b.get("policy"):
         rows = []
         for x in b["policy"][:6]:
@@ -106,6 +116,10 @@ def build_md(b, compact=False, limit=None):
     if b.get("alert"):
         return b["alert"]
     lines = ["**今日三件事**"] + [f"{i}. {h}" for i, h in enumerate(b["highlights"], 1)]
+    watched = watch_items(b)
+    if watched:
+        lines += ["", f"**★ 你关注的（{len(watched)} 条）**"] + [
+            f"- {'、'.join(it['watch_hit'])}：[{it['title']}]({it['url']})" for it in watched[: (3 if compact else 8)]]
     if b.get("policy"):
         lines += ["", "**📜 政策雷达**"] + [
             f"- [{x['policy_type']}] [{x['title']}]({x['url']})" + (f" 截止{x['deadline']}" if x.get("deadline") else "")
@@ -147,6 +161,9 @@ def build_text(b, limit=None):
     if b.get("alert"):
         return b["alert"][:limit] if limit else b["alert"]
     lines = [f"{i}. {h}" for i, h in enumerate(b["highlights"], 1)]
+    watched = watch_items(b)
+    if watched:
+        lines.append(f"★ 关注 {len(watched)} 条：" + "；".join(it["title"][:24] for it in watched[:3]))
     lines.append(f"共 {len(b['items'])} 条新闻")
     if b.get("site_url"):
         lines.append(b["site_url"])

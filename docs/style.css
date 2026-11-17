@@ -214,3 +214,20 @@ a.btn { text-decoration: none; display: inline-block; }
 .steps .on { color: var(--accent); font-weight: 600; }
 .steps .done { color: var(--down); }
 .note.genbar { border-color: var(--accent); color: var(--ink); }
+
+/* v2.2 周报、关注、检索趋势 */
+.rpt-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; margin-top: 8px; }
+.rpt-row label { font-size: 13px; display: inline-flex; gap: 4px; align-items: center; }
+.rpt-row input, .rpt-row select { font: inherit; font-size: 13px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); max-width: 100%; }
+.report h1 { font-size: 18px; margin: 0 0 8px; }
+.report h2 { font-size: 16px; margin: 14px 0 6px; }
+.report h3 { font-size: 14px; margin: 10px 0 4px; color: var(--accent); }
+.report ul { margin: 0; padding-left: 20px; }
+.report li { margin: 0 0 6px; font-size: 14px; }
+.report .rnote { color: var(--muted); font-size: 12px; }
+.trendwrap { overflow-x: auto; }
+.chips.wrapchips { flex-wrap: wrap; overflow: visible; margin-top: 8px; align-items: center; }
+.trend { display: block; max-width: 100%; height: auto; }
+.trend .bar { fill: var(--accent); }
+.trend .gl { stroke: var(--line); stroke-width: 1; }
+.trend .tx { fill: var(--muted); font-size: 12px; }

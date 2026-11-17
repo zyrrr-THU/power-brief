@@ -1,8 +1,9 @@
 /* PowerBrief 前端：纯静态，数据以 data/*.js 形式加载（本地双击打开也能用）。 */
 (function () {
   "use strict";
-  var APP_VERSION = "2.1.1";
+  var APP_VERSION = "2.2.0";
   var CATS = ["政策法规", "市场与电价", "新能源与储能", "电网与技术", "企业动态", "国际", "综合"];
+  var WATCH = "★ 关注";   // 今日页的特殊分类：只看命中关注清单的条目
   var state = { index: null, days: {}, glossary: null, extra: {}, cat: "全部", market: "A股", ptype: "全部" };
   var app = document.getElementById("app");
 
@@ -181,7 +182,7 @@
     },
     brief: function (d, md, cat) {
       var all = !cat || cat === "全部";
-      var items = d.items.filter(function (it) { return all || it.category === cat; });
+      var items = d.items.filter(function (it) { return all || (cat === WATCH ? (it.watch_hit || []).length : it.category === cat); });
       var L = [(md ? "# " : "") + "⚡ 电力日报 " + d.date + " " + weekday(d.date) + (all ? "" : " · " + cat) +
         "（" + (d.mode === "ai" ? "AI 解读" : "规则模式") + "）"];
       if (all) {
@@ -298,9 +299,10 @@
       getDay(date, function (d) {
         if (!d) { app.innerHTML = '<p class="center muted">找不到 ' + esc(date) + " 的简报。</p>"; return; }
         var i = dates.indexOf(date), prev = dates[i + 1], next = dates[i - 1];
-        var cats = ["全部"].concat(CATS.filter(function (c) { return d.items.some(function (it) { return it.category === c; }); }));
+        var nWatch = d.items.filter(function (it) { return it.watch_hit.length; }).length;
+        var cats = ["全部"].concat(nWatch ? [WATCH] : []).concat(CATS.filter(function (c) { return d.items.some(function (it) { return it.category === c; }); }));
         if (cats.indexOf(state.cat) < 0) state.cat = "全部";
-        var items = d.items.filter(function (it) { return state.cat === "全部" || it.category === state.cat; });
+        var items = d.items.filter(function (it) { return state.cat === "全部" || (state.cat === WATCH ? it.watch_hit.length : it.category === state.cat); });
         var minutes = Math.max(1, Math.round(d.items.reduce(function (n, it) { return n + it.title.length + it.summary.length + it.why.length; }, 0) / 400));
         var mode = d.mode === "ai" ? "AI 解读 · " + esc(d.provider || "") : "规则模式";
         app.innerHTML =
@@ -315,7 +317,7 @@
           d.highlights.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") + "</ol></section>" +
           policyCard(d) +
           '<div class="chips">' + cats.map(function (c) {
-            var n = c === "全部" ? d.items.length : d.items.filter(function (it) { return it.category === c; }).length;
+            var n = c === "全部" ? d.items.length : c === WATCH ? nWatch : d.items.filter(function (it) { return it.category === c; }).length;
             return '<button class="chip' + (state.cat === c ? " on" : "") + '" data-cat="' + esc(c) + '">' + esc(c) + " " + n + "</button>"; }).join("") + "</div>" +
           items.map(function (it) { return itemCard(it, date); }).join("") +
           '</div><aside class="side">' + indicatorMini(d) + stockCard(d) + annCard(d) + numbersCard(d) +
@@ -598,13 +600,14 @@
     else if (h[0] === "archive") renderArchive();
     else if (h[0] === "stars") renderStars();
     else if (h[0] === "glossary") renderGlossary("");
-    else if (h[0] === "search") renderSearch(decodeURIComponent(h[1] || ""));
+    else if (h[0] === "search" && !(window.PBRoutes && window.PBRoutes.search)) renderSearch(decodeURIComponent(h[1] || ""));
     else if (window.PBRoutes && window.PBRoutes[h[0]]) { setTab(h[0]); window.PBRoutes[h[0]](h.slice(1)); }
     else renderDay(null);
   }
   window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
   window.PB.util = { esc: esc, head: head, setTab: setTab, getExtra: getExtra, num: num, route: route, app: app,
-    toast: toast, copyText: copyText, TXT: TXT, seq: function () { return routeSeq; }, todayStr: todayStr,
+    toast: toast, copyText: copyText, TXT: TXT, seq: function () { return routeSeq; },
+    getIndex: getIndex, getDay: getDay, CATS: CATS, WATCH: WATCH, weekday: weekday, ext: ext, today: todayStr, todayStr: todayStr,
     // 新数据发布后：清掉已读入的数据，重新下载并原地刷新当前页面
     refresh: function (stay) { bust = Date.now(); state.index = null; state.days = {}; state.extra = {}; if (!stay) route(); } };
   document.getElementById("foot").innerHTML = "PowerBrief v" + APP_VERSION + " · 新闻版权归原作者所有，摘要仅供个人学习参考 · 股价与数据仅供参考，不构成投资建议";

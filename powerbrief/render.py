@@ -83,7 +83,9 @@ def rebuild_index():
         days.append({
             "date": d["date"], "mode": d.get("mode", "rule"), "count": len(d["items"]),
             "headline": (d["highlights"] or [""])[0],
-            "items": [[it["id"], it["title"], it["category"], it.get("summary", "")[:60]] for it in d["items"]],
+            # [id, 标题, 类别, 摘要, 来源, 关注命中, 分数]：网页的搜索、趋势、关注页都用它；旧网页只读前 4 项
+            "items": [[it["id"], it["title"], it["category"], it.get("summary", "")[:60], it.get("origin", ""),
+                       list(it.get("watch_hit") or []), round(float(it.get("score") or 0), 1)] for it in d["items"]],
         })
     idx = {"days": days}
     write_json(DATA / "index.json", idx)
