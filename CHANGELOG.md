@@ -1,5 +1,18 @@
 # 更新日志
 
+## 2.1.1 — 2026-11-17
+
+### 修复：GitHub 上的“tests”自测报失败
+- 原因：自测读取了网页保存到仓库的 `settings.json`。你在网页上关了 AI，所以“AI 解读结果合并”那项自测拿不到 AI 结果，判为失败。每天生成简报的 daily-brief 不受影响。
+- 修改：自测改为只用代码里的默认配置，不再读 `settings.json`。用仓库里现在的 `settings.json` 复测，19 项全部通过。
+
+### 去掉 Node.js 20 弃用警告
+三个工作流用到的 GitHub 官方组件升级到使用 Node.js 24 的版本：
+- checkout：v4 → v5；
+- setup-python：v5 → v6；
+- upload-artifact：v4 → v6。
+
+
 ## 2.1.0 — 2026-11-17
 
 ### 修复：每天不自动运行

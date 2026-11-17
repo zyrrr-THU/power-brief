@@ -17,6 +17,9 @@ from datetime import date  # noqa: E402
 from powerbrief import announce, article, feedback, indicators, llm, notify, process, render, status, summarize, topics, usage, util  # noqa: E402,E501
 from powerbrief.util import load_yaml  # noqa: E402
 
+# 自测只用代码里的默认配置：不读仓库里网页保存的 settings.json（例如网页上关掉了 AI，会让 AI 相关自测误报失败）
+util.SETTINGS_FILE = Path(__file__).resolve().parent / "_no_settings_for_tests.json"
+
 CFG = load_yaml("config.yaml")
 GLOSS = load_yaml("glossary.yaml")["terms"]
 

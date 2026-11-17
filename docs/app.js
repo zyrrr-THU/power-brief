@@ -1,7 +1,7 @@
 /* PowerBrief 前端：纯静态，数据以 data/*.js 形式加载（本地双击打开也能用）。 */
 (function () {
   "use strict";
-  var APP_VERSION = "2.1.0";
+  var APP_VERSION = "2.1.1";
   var CATS = ["政策法规", "市场与电价", "新能源与储能", "电网与技术", "企业动态", "国际", "综合"];
   var state = { index: null, days: {}, glossary: null, extra: {}, cat: "全部", market: "A股", ptype: "全部" };
   var app = document.getElementById("app");
