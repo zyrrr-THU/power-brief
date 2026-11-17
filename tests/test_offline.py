@@ -268,6 +268,70 @@ def test_status_export_no_secret_values(tmp_dir):
         render.DATA, status.RUNLOG = orig
 
 
+def test_scheduled_skip_rule(tmp_dir):
+    """多个定时时段：今天已有成功的定时运行才跳过；只有网页手动运行、失败的定时运行、昨天的定时运行都不跳过。"""
+    from powerbrief import main
+    orig = status.RUNLOG
+    try:
+        status.RUNLOG = tmp_dir / "runlog_skip.json"
+        today = "2026-11-17"
+        cases = [
+            ([], False),
+            ([{"date": today, "ok": True, "trigger": "dispatch"}], False),
+            ([{"date": today, "ok": False, "trigger": "schedule"}], False),
+            ([{"date": "2026-11-16", "ok": True, "trigger": "schedule"}], False),
+            ([{"date": today, "ok": True, "trigger": "dispatch"}, {"date": today, "ok": True, "trigger": "schedule"}], True),
+        ]
+        for runs, want in cases:
+            util.write_json(status.RUNLOG, runs)
+            assert main.scheduled_done(today) is want, (runs, want)
+    finally:
+        status.RUNLOG = orig
+
+
+def test_announce_parallel_same_as_serial():
+    """公告并发查询后结果与逐个查询一致（顺序也一致）；单个查询失败不影响其他。"""
+    import time
+
+    class Resp:
+        def __init__(self, d):
+            self.d = d
+
+        def json(self):
+            return self.d
+
+    def ann(i, tag):
+        return {"announcementId": f"{tag}{i}", "announcementTitle": f"{tag}公告{i}", "secName": "测试", "secCode": "600000",
+                "announcementTime": 1763300000000, "adjunctUrl": f"x/{tag}{i}.pdf"}
+
+    class Sess:
+        def post(self, url, data=None, **kw):
+            time.sleep(0.05)
+            code = data["stock"].split(",")[0]
+            if code == "000002":
+                raise RuntimeError("模拟超时")
+            return Resp({"announcements": [ann(1, code), ann(2, code)]})
+
+        def get(self, url, params=None, **kw):
+            time.sleep(0.05)
+            return Resp({"announcements": [ann(1, params["searchkey"])]})
+
+    stocks = [{"code": c} for c in ("sh600900", "sz000002", "sh601985", "sz300750", "sh600011", "sz003816")]
+    t = time.time()
+    par = announce.fetch_watch(stocks, 2, Sess())
+    took = time.time() - t
+    old = announce.WORKERS
+    try:
+        announce.WORKERS = 1
+        ser = announce.fetch_watch(stocks, 2, Sess())
+    finally:
+        announce.WORKERS = old
+    assert [r["id"] for r in par] == [r["id"] for r in ser] and len(par) == 10   # 失败的那只不影响其他 5 只
+    assert took < 0.25, took                                                   # 6 次 × 0.05 秒，并发后明显更快
+    kws = announce.fetch_keywords(["储能", "光伏", "核电"], 2, Sess())
+    assert [r["origin"] for r in kws] == ["关键词·储能", "关键词·光伏", "关键词·核电"]
+
+
 if __name__ == "__main__":
     import tempfile
 
@@ -289,6 +353,7 @@ if __name__ == "__main__":
         (test_topics_promote_and_annotate, ()), (test_feedback_weights, (tmp,)), (test_decode_fallback, ()),
         (test_alert_and_new_sections, ()), (test_usage_record_and_report, (tmp,)),
         (test_settings_overlay, (tmp,)), (test_status_export_no_secret_values, (tmp,)),
+        (test_scheduled_skip_rule, (tmp,)), (test_announce_parallel_same_as_serial, ()),
     ]
     failed = 0
     for fn, args in tests:

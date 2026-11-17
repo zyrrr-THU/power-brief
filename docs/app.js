@@ -1,7 +1,7 @@
 /* PowerBrief 前端：纯静态，数据以 data/*.js 形式加载（本地双击打开也能用）。 */
 (function () {
   "use strict";
-  var APP_VERSION = "2.0.0";
+  var APP_VERSION = "2.1.0";
   var CATS = ["政策法规", "市场与电价", "新能源与储能", "电网与技术", "企业动态", "国际", "综合"];
   var state = { index: null, days: {}, glossary: null, extra: {}, cat: "全部", market: "A股", ptype: "全部" };
   var app = document.getElementById("app");
@@ -28,13 +28,14 @@
     window.PB["onExtra_" + n] = function (d) { state.extra[n] = d; resolve("extra:" + n, d); };
   });
   function resolve(key, d) { (waiters[key] || []).forEach(function (f) { f(d); }); delete waiters[key]; }
+  var bust = 0;     // 网页检测到新数据后设为当前时间，强制重新下载数据（绕过浏览器缓存）
   var routeSeq = 0; // 每次切换页面加 1；数据加载完时页面已切走就不再渲染，避免旧页面盖掉新页面
   function loadScript(src, key, cb) {
     var first = !waiters[key], seq = routeSeq;
     (waiters[key] = waiters[key] || []).push(function (d) { if (seq === routeSeq) cb(d); });
     if (!first) return;
     var s = document.createElement("script");
-    s.src = src + "?t=" + Math.floor(Date.now() / 60000);
+    s.src = src + "?t=" + (bust || Math.floor(Date.now() / 60000));
     s.onerror = function () { resolve(key, null); };
     document.head.appendChild(s);
   }
@@ -289,6 +290,7 @@
 
   function renderDay(date) {
     setTab("day");
+    var asked = date;
     getIndex(function (idx) {
       if (!idx || !idx.days.length) { app.innerHTML = '<p class="center muted">还没有简报。请先在电脑上运行一次程序。</p>'; return; }
       var dates = idx.days.map(function (x) { return x.date; });
@@ -319,6 +321,8 @@
           '</div><aside class="side">' + indicatorMini(d) + stockCard(d) + annCard(d) + numbersCard(d) +
           (d.concept ? '<section class="card"><h2>💡 今日学一个概念</h2><b>' + esc(d.concept.term) + '</b><p style="margin:4px 0 0;font-size:14px">' + esc(d.concept.explain) + "</p></section>" : "") +
           weeklyCard(d) + healthCard(d) + "</aside></div>";
+        // 默认打开最新一期时，由管理脚本判断“今天还没生成”并在顶部显示提示/进度
+        if (!asked && window.PBonLatest) { app.insertAdjacentHTML("afterbegin", '<div id="todayBanner"></div>'); window.PBonLatest(date); }
         var parts = location.hash.split("/");
         if (parts[1] === "d" && parts[3]) { var el = document.getElementById("i-" + parts[3]); if (el) el.scrollIntoView(); }
       });
@@ -600,7 +604,9 @@
   }
   window.addEventListener("hashchange", function () { route(); window.scrollTo(0, 0); });
   window.PB.util = { esc: esc, head: head, setTab: setTab, getExtra: getExtra, num: num, route: route, app: app,
-    toast: toast, copyText: copyText, TXT: TXT, seq: function () { return routeSeq; } };
+    toast: toast, copyText: copyText, TXT: TXT, seq: function () { return routeSeq; }, todayStr: todayStr,
+    // 新数据发布后：清掉已读入的数据，重新下载并原地刷新当前页面
+    refresh: function (stay) { bust = Date.now(); state.index = null; state.days = {}; state.extra = {}; if (!stay) route(); } };
   document.getElementById("foot").innerHTML = "PowerBrief v" + APP_VERSION + " · 新闻版权归原作者所有，摘要仅供个人学习参考 · 股价与数据仅供参考，不构成投资建议";
   route();
 

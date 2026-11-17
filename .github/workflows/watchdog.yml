@@ -1,9 +1,9 @@
-# 监控：北京时间 10:30 检查当天是否已成功推送（只在 run.mode: github 时生效），未推送则用同样的渠道发提醒
+# 监控：北京时间 10:47 检查当天是否已成功推送（只在 run.mode: github 时生效），未推送则用同样的渠道发提醒
 name: watchdog
 
 on:
   schedule:
-    - cron: "30 2 * * *"      # UTC 02:30 = 北京时间 10:30
+    - cron: "47 2 * * *"      # 北京时间 10:47（在最后一个生成时段之后）
   workflow_dispatch:
 
 jobs:

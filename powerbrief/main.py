@@ -1,13 +1,13 @@
 """主流程：抓取 → 原文 → 去重分类 → 股价/公告/数据 → 摘要 → 专题 → 生成网站数据 → 推送 → 发布。
 
 用法（在 power-brief 目录下）：
-  python -m powerbrief                 正常运行（已推送过的当天会跳过）
+  python -m powerbrief                 正常运行（当天已推送过、或定时任务已成功运行过会跳过）
   python -m powerbrief --force         今天已推送过也重新运行并推送
   python -m powerbrief --no-push       只生成，不推送、不发布
   python -m powerbrief --no-ai         本次强制用无 AI 模式
   python -m powerbrief --dry-run       只抓取并打印统计，不写文件、不推送
   python -m powerbrief --weekly        非周日也生成周回顾和专题解读
-  python -m powerbrief --check         检查今天是否已成功推送，没有则发提醒（10:30 自动运行）
+  python -m powerbrief --check         检查今天是否已成功推送，没有则发提醒（10:47 自动运行）
   python -m powerbrief --test-push     用最近一期简报测试推送渠道
 """
 from __future__ import annotations
@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import sys
 import traceback
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
 
 from . import announce, article, feedback, indicators, notify, process, render, status, topics, usage
@@ -28,6 +29,14 @@ from .util import DATA, DOCS, ROOT, STATE, load_env, load_yaml, local_today, log
     setup_logging, version, write_json
 
 PUSH_LOG = STATE / "push_log.json"
+
+
+def scheduled_done(today):
+    """今天是否已有一次成功的定时运行。网页手动“只更新网页”的运行不算，之后的定时运行照常生成并推送。"""
+    return any(r.get("date") == today and r.get("ok") and r.get("trigger") == "schedule"
+               for r in read_json(status.RUNLOG, []))
+
+
 POLICY_FILE = STATE / "policy.json"
 
 
@@ -118,14 +127,20 @@ def build(cfg, args, today):
     log.info("合并同类后 %d 条，去掉往日已推送后 %d 条", len(items), len(fresh))
     cands = process.enrich(fresh, cfg, weights)
 
+    # 股价、公告与抓原文互不依赖，放到后台同时进行（节省约 20 秒）
+    bg = ThreadPoolExecutor(max_workers=2)
+    fut_stocks = bg.submit(fetch_stocks, stocks_conf)
+    fut_anns = bg.submit(announce.fetch_announcements, stocks_conf)
+
     # 原文：解码 Google 链接、抓正文、补日期；原本没日期、从正文页查到其实是旧文章的剔除，然后重新排序
-    art = article.enrich_articles(cands, limit=int(cfg["ai"].get("max_candidates", 40)) + 10)
+    art = article.enrich_articles(cands, limit=int(cfg["ai"].get("max_candidates", 40)) + 10, workers=8)
     cutoff = now_utc() - timedelta(hours=cfg["run"].get("lookback_hours", 36) + 24)
     cands = [it for it in cands if not it.get("date_from_page") or datetime.fromisoformat(it["published"]) >= cutoff]
     cands = process.enrich(cands, cfg, weights)
 
-    stocks = fetch_stocks(stocks_conf)
-    anns, ann_raw = announce.fetch_announcements(stocks_conf)
+    stocks = fut_stocks.result()
+    anns, ann_raw = fut_anns.result()
+    bg.shutdown()
     ind_store = indicators.load()
     ind_ok = indicators.update_hard(ind_store, today, [it["title"] for it in items])
 
@@ -275,6 +290,9 @@ def cli():
             return
         if read_json(PUSH_LOG, {}).get(today) and not args.no_push:
             log.info("今天 %s 已推送过，跳过（用 --force 重跑）", today)
+            return
+        if scheduled_done(today):
+            log.info("今天 %s 的定时任务已成功运行过，跳过（每天设了几个备用时段，先到的那次生成）", today)
             return
 
     try:

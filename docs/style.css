@@ -207,3 +207,10 @@ mark { background: #ffe58a; color: #222; border-radius: 2px; }
 .tblwrap { overflow-x: auto; }
 .note .btn { margin: 0 4px; }
 a.btn { text-decoration: none; display: inline-block; }
+
+/* v2.1 更新进度：排队 → 生成 → 发布 */
+.steps { display: inline-flex; flex-wrap: wrap; gap: 2px 4px; align-items: center; }
+.steps > span:not(.muted) { white-space: nowrap; color: var(--muted); }
+.steps .on { color: var(--accent); font-weight: 600; }
+.steps .done { color: var(--down); }
+.note.genbar { border-color: var(--accent); color: var(--ink); }

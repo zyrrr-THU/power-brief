@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
 from .util import http, log, short_hash
@@ -55,11 +56,24 @@ def _stock_param(code):
     return f"{num},{org}", col
 
 
+WORKERS = 5  # 并发查询数：逐个查询约 20 秒，并发后约 5 秒
+
+
+def _pmap(fn, seq):
+    """并发执行，结果按原顺序拼接（与逐个查询的结果一致）。"""
+    seq = list(seq)
+    if not seq:
+        return []
+    with ThreadPoolExecutor(max_workers=min(WORKERS, len(seq))) as ex:
+        return [r for part in ex.map(fn, seq) for r in part]
+
+
 def fetch_watch(stocks, days, sess):
     end = datetime.now(timezone(timedelta(hours=8))).date()
     se = f"{end - timedelta(days=days)}~{end}"
-    out = []
-    for s in stocks:
+
+    def one(s):
+        out = []
         try:
             stock, col = _stock_param(s["code"])
             d = sess.post(QUERY, timeout=15, data={
@@ -72,13 +86,15 @@ def fetch_watch(stocks, days, sess):
                 out.append(r)
         except Exception as e:  # noqa: BLE001
             log.debug("公告查询失败 %s: %s", s["code"], e)
-    return out
+        return out
+    return _pmap(one, stocks)
 
 
 def fetch_keywords(keywords, days, sess):
     end = datetime.now(timezone(timedelta(hours=8))).date()
-    out = []
-    for kw in keywords:
+
+    def one(kw):
+        out = []
         try:
             d = sess.get(SEARCH, timeout=15, params={
                 "searchkey": kw, "sdate": str(end - timedelta(days=days)), "edate": str(end),
@@ -90,7 +106,8 @@ def fetch_keywords(keywords, days, sess):
                 out.append(_row(a, f"关键词·{kw}"))
         except Exception as e:  # noqa: BLE001
             log.debug("公告关键词失败 %s: %s", kw, e)
-    return out
+        return out
+    return _pmap(one, keywords)
 
 
 def fetch_announcements(stocks_conf):

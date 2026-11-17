@@ -216,7 +216,7 @@
       field("每天精选条数", input("maxItems", (c.run || {}).max_items, "number")) + "</div>" +
       '<div class="row2">' + field("每类最多几条", input("perCat", (c.run || {}).max_per_category, "number")) +
       field("用量统计口径", select("usagePlan", (c.usage || {}).plan || "api", [["api", "按 API 实际费用"], ["pro", "Claude Pro 套餐"], ["max5", "Claude Max 5x"], ["max20", "Claude Max 20x"]])) + "</div>" +
-      '<p class="small muted">每天北京时间 07:30 自动生成（你这里约 ' + esc(beijingToLocal("07:30")) + "，GitHub 常有几分钟到半小时延迟）。改时间需改 .github/workflows/daily.yml，见使用说明。</p>" +
+      '<p class="small muted">每天北京时间 06:47 起自动生成（你这里约 ' + esc(beijingToLocal("06:47")) + "）。GitHub 定时可能延迟或漏掉，所以设了 06:47、07:17、07:47、08:47 四个时段，先成功的那次生效。改时间需改 .github/workflows/daily.yml，见使用说明。</p>" +
       saveBtns("run", dis) + "</section>" +
       // 内容偏好
       '<section class="card"><h2>🎯 内容偏好</h2>' +
@@ -406,7 +406,7 @@
   function runStatusText(r) {
     if (!r) return "等待 GitHub 开始运行…";
     if (r.status === "queued" || r.status === "waiting" || r.status === "pending" || r.status === "requested") return "排队中…";
-    if (r.status === "in_progress") return "运行中（抓取新闻、AI 解读，约 3–5 分钟）…";
+    if (r.status === "in_progress") return "运行中（抓取新闻、AI 解读，约 1–2 分钟）…";
     if (r.status === "completed") return r.conclusion === "success" ? "已完成" : "运行失败（" + r.conclusion + "）";
     return r.status;
   }
@@ -420,7 +420,7 @@
         '<button class="runbtn" data-dispatch="1"><b>更新并推送到手机</b><small class="muted">今天已推送过也会再推一次</small></button></div>' +
         '<p class="small" id="jobLine"></p>'
         : '<p class="small">需要先在“设置”页连接 GitHub。也可以在 GitHub 仓库的 Actions → daily-brief → Run workflow 手动运行。</p><a class="btn" href="#/settings">去连接</a>') +
-      '<p class="small muted">每天北京时间 07:30 自动运行（你这里约 ' + esc(beijingToLocal("07:30")) + "）。</p></section>" +
+      '<p class="small muted">每天北京时间 06:47 起自动运行（你这里约 ' + esc(beijingToLocal("06:47")) + "），设了 4 个时段防止 GitHub 漏跑，最晚 08:47。</p></section>" +
       '<section class="card"><h2>最近运行</h2><div id="runlog"><p class="muted small">读取中…</p></div></section>' +
       (on ? '<section class="card"><h2>GitHub 上的运行</h2><div id="ghRuns"><p class="muted small">读取中…</p></div>' +
         '<p class="small"><a href="' + repoUrl(repo, "/actions/workflows/" + WORKFLOW) + '" target="_blank" rel="noopener">在 GitHub 查看全部 ↗</a></p></section>' : "") +
@@ -464,53 +464,110 @@
     }).join("") + "</table>";
   }
 
+  // 三段进度：排队 → 生成 → 发布。job.run 为 GitHub 上的这次运行；也可以“跟上”一次已经在跑的定时运行。
+  var tick = null;
   function startJob(push) {
     if (job && job.phase !== "done") return toast("已有一次更新在进行中", true);
     if (push && !confirm("更新后会推送到手机（今天已推送过也会再推一次）。继续？")) return;
     job = { since: Date.now() - 60000, push: push, run: null, phase: "dispatch", started: Date.now() };
     showJob();
-    GH.dispatch(push).then(function () { job.phase = "wait"; showJob(); setTimeout(pollJob, 4000); })
+    GH.dispatch(push).then(function () { job.phase = "wait"; showJob(); setTimeout(pollJob, 3000); })
       .catch(function (e) { job.phase = "done"; job.error = e.message; showJob(); });
+  }
+  function followRun(r) {
+    // 打开网页时已有运行在进行（定时或别处点的）：直接显示它的进度
+    if (job && job.phase !== "done") return;
+    job = { since: 0, push: r.event === "schedule", run: r, phase: "wait", started: new Date(r.created_at).getTime(), follow: true };
+    if (r.status === "in_progress") job.genAt = new Date(r.run_started_at || r.created_at).getTime();
+    showJob(); setTimeout(pollJob, 3000);
   }
 
   function pollJob() {
     if (!job || job.phase === "done") return;
     if (Date.now() - job.started > 25 * 60000) { job.phase = "done"; job.error = "等待超时，请在 GitHub 查看运行状态"; showJob(); return; }
     if (job.phase === "publish") {
-      // 运行完成后等 GitHub Pages 发布新数据：运行记录里出现本次运行编号即为已发布
+      // 运行完成后等 GitHub Pages 发布新数据：网站上的运行记录里出现本次运行编号即为已发布
       loadRunlog(function (rl) {
         var hit = rl && (rl.runs || []).some(function (r) { return String(r.run_id) === String(job.run.id); });
-        if (hit) { job.phase = "done"; job.ok = true; showJob(); drawRunlog(rl); toast("网页已更新"); GH.runs(6).then(drawGhRuns, function () {}); }
-        else if (Date.now() - job.doneAt > 6 * 60000) { job.phase = "done"; job.ok = true; job.slow = true; showJob(); }
-        else setTimeout(pollJob, 10000);
+        if (hit) {
+          job.phase = "done"; job.ok = true; job.pubDone = Date.now(); showJob();
+          toast("网页已更新"); U.refresh(/^#\/?settings/.test(location.hash));   // 设置页可能有未保存的修改，不重绘
+        } else if (Date.now() - job.doneAt > 6 * 60000) { job.phase = "done"; job.ok = true; job.slow = true; showJob(); }
+        else setTimeout(pollJob, 5000);
       });
       return;
     }
     GH.runs(6).then(function (runs) {
       drawGhRuns(runs);
-      var r = runs.filter(function (x) { return x.event === "workflow_dispatch" && new Date(x.created_at).getTime() >= job.since; })[0];
+      var r = job.run && job.run.id ? runs.filter(function (x) { return x.id === job.run.id; })[0]
+        : runs.filter(function (x) { return x.event === "workflow_dispatch" && new Date(x.created_at).getTime() >= job.since; })[0];
       if (r) job.run = r;
+      if (r && r.status === "in_progress" && !job.genAt) job.genAt = Date.now();
       if (r && r.status === "completed") {
-        if (r.conclusion === "success") { job.phase = "publish"; job.doneAt = Date.now(); }
+        if (r.conclusion === "success") { job.phase = "publish"; job.doneAt = Date.now(); job.genAt = job.genAt || job.doneAt; }
+        else if (r.conclusion === "skipped" || r.conclusion === "cancelled") { job.phase = "done"; job.error = "这次运行被取消或跳过，点链接看原因"; }
         else { job.phase = "done"; job.error = "运行失败（" + r.conclusion + "），点链接看原因"; }
       }
-      showJob(); if (job.phase !== "done") setTimeout(pollJob, job.phase === "publish" ? 10000 : 8000);
+      showJob(); if (job.phase !== "done") setTimeout(pollJob, job.phase === "publish" ? 3000 : 5000);
     }).catch(function (e) { job.phase = "done"; job.error = e.message; showJob(); });
   }
 
-  function showJob() {
-    var el = $("jobLine"); if (!el) return;
-    app.querySelectorAll("[data-dispatch]").forEach(function (b) { b.disabled = !!job && job.phase !== "done"; });
-    if (!job) { el.innerHTML = ""; return; }
-    var link = job.run ? ' <a href="' + esc(job.run.html_url) + '" target="_blank" rel="noopener">运行详情 ↗</a>' : "";
-    var mins = Math.max(0, Math.round((Date.now() - job.started) / 60000));
-    if (job.phase === "dispatch") el.innerHTML = "正在请求 GitHub…";
-    else if (job.phase === "wait") el.innerHTML = "⏳ " + esc(runStatusText(job.run)) + "（已 " + mins + " 分钟）" + link;
-    else if (job.phase === "publish") el.innerHTML = "⏳ 生成完成，等待网页发布（约 1–2 分钟）…" + link;
-    else if (job.error) el.innerHTML = '<span class="bad">' + esc(job.error) + "</span>" + link;
-    else el.innerHTML = '<span class="ok">✓ 更新完成' + (job.push ? "，已推送" : "") + "</span>" +
-      (job.slow ? "（网页发布较慢，稍后刷新即可）" : "") + ' <a href="#/" onclick="location.reload()">查看今日简报</a>' + link;
+  function mmss(ms) { var t = Math.max(0, Math.round(ms / 1000)); return Math.floor(t / 60) + ":" + (t % 60 < 10 ? "0" : "") + (t % 60); }
+  function stepsHtml() {
+    // 排队（含请求 GitHub）→ 生成（约 1 分钟）→ 发布（约 30 秒）；各段显示已用时间
+    var now = Date.now(), gen = job.genAt, pub = job.doneAt, end = job.pubDone;
+    var st = [["排队", job.started, gen || pub], ["生成（约 1 分钟）", gen, pub], ["发布（约 30 秒）", pub, end]];
+    return '<span class="steps">' + st.map(function (x) {
+      var cls = x[2] ? "done" : x[1] ? "on" : "";
+      var t = x[1] ? " " + mmss((x[2] || now) - x[1]) : "";
+      return '<span class="' + cls + '">' + (x[2] ? "✓ " : x[1] ? "⏳ " : "") + x[0] + t + "</span>";
+    }).join('<span class="muted"> → </span>') + "</span>";
   }
+  function jobHtml() {
+    if (!job) return "";
+    var link = job.run ? ' <a href="' + esc(job.run.html_url) + '" target="_blank" rel="noopener">运行详情 ↗</a>' : "";
+    if (job.phase === "dispatch") return "正在请求 GitHub…";
+    if (job.phase === "wait" || job.phase === "publish") return (job.follow ? (job.push ? "定时任务正在运行：" : "已有一次更新在运行：") : "") + stepsHtml() + link;
+    if (job.error) return '<span class="bad">' + esc(job.error) + "</span>" + link;
+    return '<span class="ok">✓ 更新完成，共用时 ' + mmss((job.pubDone || Date.now()) - job.started) + "</span>" +
+      (job.slow ? "（网页发布较慢，稍后刷新即可）" : "（页面已自动刷新）") + link;
+  }
+  function showJob() {
+    var active = !!job && job.phase !== "done";
+    if (active && !tick) tick = setInterval(showJob, 1000);
+    if (!active && tick) { clearInterval(tick); tick = null; }
+    app.querySelectorAll("[data-dispatch]").forEach(function (b) { b.disabled = active; });
+    var html = jobHtml();
+    var el = $("jobLine"); if (el) el.innerHTML = html;
+    var bn = $("todayBanner");
+    if (bn && job && (active || job.ok || job.error)) bn.innerHTML = '<p class="note genbar">' + html + "</p>";
+  }
+
+  // —— 今日页：今天的简报还没生成时提示，并可一键生成（GitHub 定时任务可能延迟或漏跑） ——
+  var runsChecked = 0;
+  function onLatest(latestDate) {
+    var bn = $("todayBanner"); if (!bn) return;
+    if (job && (job.phase !== "done" || job.ok)) { showJob(); return; }
+    var today = U.todayStr(), bjHour = new Date(Date.now() + 8 * 3600e3).getUTCHours();
+    if (latestDate === today || bjHour < 7) return;   // 已是今天的，或还没到生成时间
+    var repo = (GH.conf() || {}).repo || guessRepo(S);
+    var actions = repo ? ' <a href="' + esc(repoUrl(repo, "/actions/workflows/" + WORKFLOW)) + '" target="_blank" rel="noopener">在 GitHub 查看 ↗</a>' : "";
+    if (!GH.connected()) {
+      bn.innerHTML = '<p class="note">今天（' + esc(today.slice(5)) + "）的简报还没生成：GitHub 定时任务可能延迟，" +
+        (bjHour >= 9 ? "今天可能漏跑了。" : "通常 9 点前会完成。") + "在“设置”里连接 GitHub 后，这里可以一键生成。" + actions + "</p>";
+      return;
+    }
+    bn.innerHTML = '<p class="note">今天（' + esc(today.slice(5)) + "）的简报还没生成：GitHub 定时任务可能延迟或漏跑。 " +
+      '<button class="btn sm" id="genNow">立即生成</button>' + actions + "</p>";
+    $("genNow").onclick = function () { startJob(false); };
+    if (Date.now() - runsChecked < 30000) return;   // 30 秒内不重复查询
+    runsChecked = Date.now();
+    GH.runs(3).then(function (runs) {
+      var r = runs.filter(function (x) { return x.status !== "completed"; })[0];
+      if (r && $("todayBanner")) followRun(r);
+    }, function () { /* 查不到就保留按钮 */ });
+  }
+  window.PBonLatest = onLatest;
 
   // —— 用量 ——
   function barChart(days) {
