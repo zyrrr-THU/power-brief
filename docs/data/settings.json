@@ -1,6 +1,6 @@
 {
- "version": "2.0.0",
- "generated": "2026-11-17T01:00:04+00:00",
+ "version": "2.2.0",
+ "generated": "2026-11-18T01:28:37+00:00",
  "effective": {
   "config": {
    "run": {
@@ -472,6 +472,62 @@
      "tier": 2,
      "link_contains": "cnenergynews.cn/article",
      "filter": "power"
+    },
+    {
+     "name": "中电新闻·头条",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/xwtt/",
+     "link_contains": "cpnn.com.cn/news/xwtt/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·电力",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/dianli2023/",
+     "link_contains": "cpnn.com.cn/news/dianli2023/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·新能源",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/xny/",
+     "link_contains": "cpnn.com.cn/news/xny/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·企业",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/nyqy/",
+     "link_contains": "cpnn.com.cn/news/nyqy/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·地方",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/dfny/",
+     "link_contains": "cpnn.com.cn/news/dfny/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·行业",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/hy/",
+     "link_contains": "cpnn.com.cn/news/hy/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·能源监管",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/nyjg/",
+     "link_contains": "cpnn.com.cn/news/nyjg/",
+     "tier": 3
+    },
+    {
+     "name": "中电新闻·国际",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/gj/",
+     "link_contains": "cpnn.com.cn/news/gj/",
+     "tier": 2
     },
     {
      "name": "搜索·电力政策",
@@ -1112,6 +1168,62 @@
      "filter": "power"
     },
     {
+     "name": "中电新闻·头条",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/xwtt/",
+     "link_contains": "cpnn.com.cn/news/xwtt/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·电力",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/dianli2023/",
+     "link_contains": "cpnn.com.cn/news/dianli2023/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·新能源",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/xny/",
+     "link_contains": "cpnn.com.cn/news/xny/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·企业",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/nyqy/",
+     "link_contains": "cpnn.com.cn/news/nyqy/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·地方",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/dfny/",
+     "link_contains": "cpnn.com.cn/news/dfny/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·行业",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/hy/",
+     "link_contains": "cpnn.com.cn/news/hy/",
+     "tier": 2
+    },
+    {
+     "name": "中电新闻·能源监管",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/nyjg/",
+     "link_contains": "cpnn.com.cn/news/nyjg/",
+     "tier": 3
+    },
+    {
+     "name": "中电新闻·国际",
+     "type": "html_list",
+     "url": "https://www.cpnn.com.cn/news/gj/",
+     "link_contains": "cpnn.com.cn/news/gj/",
+     "tier": 2
+    },
+    {
      "name": "搜索·电力政策",
      "type": "gnews",
      "query": "电力 政策 OR 通知 OR 印发",
@@ -1341,20 +1453,20 @@
  },
  "repo": "zyrrr-THU/power-brief",
  "last_run": {
-  "time": "2026-11-17T01:00:04+00:00",
-  "version": "2.0.0",
+  "time": "2026-11-18T01:28:37+00:00",
+  "version": "2.2.0",
   "runner": "github",
   "trigger": "dispatch",
-  "run_id": "43991948381",
-  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/43991948381",
-  "date": "2026-11-17",
+  "run_id": "44215999491",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/44215999491",
+  "date": "2026-11-18",
   "ok": true,
   "items": 20,
   "mode": "rule",
   "provider": "",
   "tokens": 0,
   "notes": [
-   "连续 3 天无数据的来源：能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部"
+   "连续 3 天无数据的来源：能源局·公告、能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部"
   ],
   "push": "未推送（只更新网页）"
  }
