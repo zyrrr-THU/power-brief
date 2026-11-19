@@ -1,6 +1,6 @@
 {
  "version": "2.2.0",
- "generated": "2026-11-18T03:54:50+00:00",
+ "generated": "2026-11-19T03:53:31+00:00",
  "effective": {
   "config": {
    "run": {
@@ -1453,20 +1453,20 @@
  },
  "repo": "zyrrr-THU/power-brief",
  "last_run": {
-  "time": "2026-11-18T03:54:50+00:00",
+  "time": "2026-11-19T03:53:31+00:00",
   "version": "2.2.0",
   "runner": "github",
   "trigger": "schedule",
-  "run_id": "44233605905",
-  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/44233605905",
-  "date": "2026-11-18",
+  "run_id": "44454460523",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/44454460523",
+  "date": "2026-11-19",
   "ok": true,
   "items": 20,
   "mode": "rule",
   "provider": "",
   "tokens": 0,
   "notes": [
-   "连续 3 天无数据的来源：能源局·公告、能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部"
+   "连续 3 天无数据的来源：能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部"
   ],
   "push": "pushplus:失败"
  }

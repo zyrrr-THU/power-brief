@@ -1,6 +1,54 @@
 {
  "policy": [
   {
+   "id": "80f88bd61035",
+   "date": "2026-11-19",
+   "title": "国家能源局关于加快推动流域水风光一体化发展的指导意见",
+   "url": "https://www.nea.gov.cn/20261118/86aabd24d92d4eeb93dafb535f819650/c.html",
+   "origin": "能源局·通知",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "国家能源局关于加快推动流域水风光一体化发展的指导意见 各省（自治区、直辖市）能源局，有关省（自治区、直辖市）及新疆生产建设兵团发展改革委，各派出机构，国家电网有限公司、中国南方电网有限责任公司，有关发电企业： 流域水风光一体化发展是立足流域",
+   "in_brief": true,
+   "official": true
+  },
+  {
+   "id": "fd213076aed6",
+   "date": "2026-11-19",
+   "title": "内蒙古电网侧独立储能容量电价政策征求意见：执行容量电价，不再执行放电量补偿！",
+   "url": "https://mchuneng.in-en.com/html/chunengy-60159.shtml",
+   "origin": "国际储能网",
+   "policy_type": "征求意见",
+   "deadline": "",
+   "summary": "",
+   "in_brief": true,
+   "official": false
+  },
+  {
+   "id": "979a4def3d6e",
+   "date": "2026-11-19",
+   "title": "今日行业动态｜国家水风光一体化指导意见：单个基地新能源≥5GW，逐步推动项目整体参与电力市场",
+   "url": "https://finance.sina.com.cn/roll/2026-11-19/doc-inizfqem6407467.shtml",
+   "origin": "新浪财经",
+   "policy_type": "正式文件",
+   "deadline": "",
+   "summary": "1、国家水风光一体化指导意见：单个基地新能源≥5GW，逐步推动项目整体参与电力市场 11月18日，国家能源局发布《关于加快推动流域水风光一体化发展的指导意见》。 文件显示，到2030年，雅砻江、金沙江",
+   "in_brief": false,
+   "official": false
+  },
+  {
+   "id": "748c7001433a",
+   "date": "2026-11-19",
+   "title": "文件图解——《北京市城市管理委员会关于印发北京市2027年电力市场化交易方案、绿色电力交易方案的通知》的解读",
+   "url": "https://www.beijing.gov.cn/zhengce/zcjd/202611/t20261119_4952097.html",
+   "origin": "北京市人民政府门户网站",
+   "policy_type": "政策解读",
+   "deadline": "",
+   "summary": "文件图解——《北京市城市管理委员会关于印发北京市2027年电力市场化交易方案、绿色电力交易方案的通知》的解读 日期：2026-11-18 18:00 来源：北京市城市管理委员会",
+   "in_brief": false,
+   "official": false
+  },
+  {
    "id": "a6bf1062699f",
    "date": "2026-11-18",
    "title": "宁夏电力调频辅助服务市场实施细则公示：现阶段宁夏调频市场与电力现货市场独立出清",
