@@ -125,5 +125,23 @@
    "连续 3 天无数据的来源：能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部、政策·江苏"
   ],
   "push": "未推送（只更新网页）"
+ },
+ {
+  "time": "2026-11-20T03:45:43+00:00",
+  "version": "2.2.0",
+  "runner": "github",
+  "trigger": "schedule",
+  "run_id": "44669828207",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/44669828207",
+  "date": "2026-11-20",
+  "ok": true,
+  "items": 20,
+  "mode": "rule",
+  "provider": "",
+  "tokens": 0,
+  "notes": [
+   "连续 3 天无数据的来源：能源局·项目核准、能源局·能源要闻、国家发改委·新闻发布、生态环境部、政策·江苏"
+  ],
+  "push": "pushplus:失败"
  }
 ]
