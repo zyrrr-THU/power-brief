@@ -178,6 +178,10 @@ def relevant(title, keywords):
     return any(k.lower() in t for k in keywords)
 
 
+# 最近一次抓取的附加信息：raw = {来源名: 过滤前抓到的条数}（只记列表页/RSS 等；搜索类 0 条是正常的，不记录）
+LAST = {"raw": {}}
+
+
 def fetch_all(sources, cfg):
     """返回 (新闻列表, {来源名: 条数})。"""
     lookback = cfg["run"].get("lookback_hours", 36)
@@ -205,8 +209,11 @@ def fetch_all(sources, cfg):
                 continue
             kept.append(it)
         log.info("来源 %-14s 抓到 %3d 条，保留 %3d 条", src["name"], len(items), len(kept))
+        if src["type"] != "gnews":
+            LAST["raw"][src["name"]] = len(items)
         return src["name"], kept
 
+    LAST["raw"] = {}
     active = [s for s in expand_sources(sources, cfg) if s.get("enabled", True)]
     with ThreadPoolExecutor(max_workers=6) as ex:
         results = list(ex.map(one, active))

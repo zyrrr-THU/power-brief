@@ -1,6 +1,6 @@
 /* 离线缓存：页面外壳缓存优先；data/ 网络优先、断网时用缓存（可离线读最近看过的简报）。 */
-var CACHE = "pb-shell-2.2.0";
-var SHELL = ["./", "index.html", "style.css?v=2.2.0", "app.js?v=2.2.0", "manage.js?v=2.2.0", "extra.js?v=2.2.0", "manifest.webmanifest", "icon.svg"];
+var CACHE = "pb-shell-2.2.1";
+var SHELL = ["./", "index.html", "style.css?v=2.2.1", "app.js?v=2.2.1", "manage.js?v=2.2.1", "extra.js?v=2.2.1", "manifest.webmanifest", "icon.svg"];
 
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); }));

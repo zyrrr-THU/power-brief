@@ -8,6 +8,7 @@ run:
   mode: github
   timezone_offset_hours: 8        # 简报日期按北京时间计算
   lookback_hours: 36              # 抓取最近多少小时的新闻
+  monday_lookback_hours: 72       # 周一回看多少小时（覆盖周末；周末各网站发稿少）。0 = 不延长
   max_items: 22                   # 每日精选条数
   max_per_category: 6             # 每个分类最多几条，保证覆盖面
 

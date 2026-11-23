@@ -213,6 +213,7 @@
       // 数量与用量
       '<section class="card"><h2>⏰ 数量与统计</h2>' +
       '<div class="row2">' + field("抓取最近几小时", input("lookback", (c.run || {}).lookback_hours, "number")) +
+      field("周一回看几小时", input("mondayLb", (c.run || {}).monday_lookback_hours == null ? 72 : c.run.monday_lookback_hours, "number"), "覆盖周末，0 = 不延长") +
       field("每天精选条数", input("maxItems", (c.run || {}).max_items, "number")) + "</div>" +
       '<div class="row2">' + field("每类最多几条", input("perCat", (c.run || {}).max_per_category, "number")) +
       field("用量统计口径", select("usagePlan", (c.usage || {}).plan || "api", [["api", "按 API 实际费用"], ["pro", "Claude Pro 套餐"], ["max5", "Claude Max 5x"], ["max20", "Claude Max 20x"]])) + "</div>" +
@@ -276,7 +277,7 @@
   var PATHS = {
     ai: [["config", "ai", "enabled"], ["config", "ai", "providers"], ["config", "ai", "max_candidates"]],
     notify: [["config", "notify", "channels"], ["config", "notify", "title_prefix"]],
-    run: [["config", "run", "lookback_hours"], ["config", "run", "max_items"], ["config", "run", "max_per_category"], ["config", "usage", "plan"]],
+    run: [["config", "run", "lookback_hours"], ["config", "run", "monday_lookback_hours"], ["config", "run", "max_items"], ["config", "run", "max_per_category"], ["config", "usage", "plan"]],
     content: [["config", "watchlist"], ["config", "penalty_keywords"], ["config", "policy_provinces"]],
     stocks: [["stocks", "stocks"], ["stocks", "alert_pct"], ["stocks", "announcements", "keywords"]],
     sources: [["sources", "sources"]],
@@ -302,7 +303,7 @@
       var chs = []; app.querySelectorAll(".chOn").forEach(function (cb) { if (cb.checked) chs.push(cb.value); });
       v["config.notify.channels"] = chs; v["config.notify.title_prefix"] = $("titlePrefix").value;
     } else if (key === "run") {
-      v["config.run.lookback_hours"] = num($("lookback").value, 36); v["config.run.max_items"] = num($("maxItems").value, 22);
+      v["config.run.lookback_hours"] = num($("lookback").value, 36); v["config.run.monday_lookback_hours"] = num($("mondayLb").value, 72); v["config.run.max_items"] = num($("maxItems").value, 22);
       v["config.run.max_per_category"] = num($("perCat").value, 6); v["config.usage.plan"] = $("usagePlan").value;
     } else if (key === "content") {
       v["config.watchlist"] = list($("watch").value); v["config.penalty_keywords"] = list($("penalty").value); v["config.policy_provinces"] = list($("provinces").value);

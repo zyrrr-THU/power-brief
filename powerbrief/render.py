@@ -104,11 +104,24 @@ def write_glossary(glossary):
     _write_js(DATA / "glossary.js", "onGlossary", glossary)
 
 
-def source_alerts(today, stats, days=3):
-    """某来源连续 days 天抓到 0 条（或失败）时提醒检查。"""
+def _source_bad(name, stats, raw):
+    """真正的故障：抓取失败（-1），或列表页一条都没抓到。抓到了但都被“电力相关”关键词过滤掉的不算。
+    旧数据没有原始条数（raw）时，只把失败算作故障；搜索类来源不记录原始条数，也只看失败。"""
+    v = stats.get(name)
+    if v is None:          # 当天没有这个来源（未启用）
+        return False
+    if v < 0:
+        return True
+    return raw is not None and raw.get(name, 1) == 0
+
+
+def source_alerts(today, stats, days=3, raw=None):
+    """某来源连续 days 天故障时提醒检查。"""
     t = date.fromisoformat(today)
-    hist = [stats] + [(load_day((t - timedelta(days=i)).isoformat()) or {}).get("source_stats")
-                      for i in range(1, days)]
-    if any(h is None for h in hist):
-        return []
-    return [name for name in stats if all((h.get(name, 0) or 0) <= 0 for h in hist)]
+    hist = [(stats, raw)]
+    for i in range(1, days):
+        d = load_day((t - timedelta(days=i)).isoformat())
+        if not d or d.get("source_stats") is None:
+            return []
+        hist.append((d["source_stats"], d.get("source_raw")))
+    return [name for name in stats if all(_source_bad(name, st, rw) for st, rw in hist)]

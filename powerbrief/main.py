@@ -21,6 +21,7 @@ import traceback
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
 
+from . import sources as sources_mod
 from . import announce, article, feedback, indicators, notify, process, render, status, topics, usage
 from .sources import fetch_all
 from .stocks import fetch_stocks
@@ -29,6 +30,18 @@ from .util import DATA, DOCS, ROOT, STATE, load_env, load_yaml, local_today, log
     setup_logging, version, write_json
 
 PUSH_LOG = STATE / "push_log.json"
+
+
+def monday_lookback(cfg, today):
+    """周一自动把回看时间延长到覆盖周末（周末各网站发稿少，周一回看 24 小时会漏掉周五的新闻）。
+    run.monday_lookback_hours 填 0 表示不延长。返回实际使用的小时数。"""
+    run = cfg.setdefault("run", {})
+    base = run.get("lookback_hours", 36)
+    ext = int(run.get("monday_lookback_hours", 72) or 0)
+    if ext and date.fromisoformat(today).weekday() == 0 and ext > base:
+        run["lookback_hours"] = ext
+        log.info("周一：回看 %d 小时（覆盖周末，平时 %d 小时）", ext, base)
+    return run.get("lookback_hours", base)
 
 
 def scheduled_done(today):
@@ -110,6 +123,7 @@ def update_policy_history(today, cands, chosen_ids):
 
 
 def build(cfg, args, today):
+    monday_lookback(cfg, today)
     sources = load_yaml("sources.yaml").get("sources", [])
     glossary = load_yaml("glossary.yaml").get("terms", {})
     stocks_conf = load_yaml("stocks.yaml")
@@ -188,9 +202,10 @@ def build(cfg, args, today):
             it.update({k: by_id[it["id"]].get(k) for k in ("policy_type", "deadline", "summary") if by_id[it["id"]].get(k)})
     policy_today, policy_hist = update_policy_history(today, cands, chosen_ids)
 
-    alerts = render.source_alerts(today, stats)
+    raw = dict(sources_mod.LAST.get("raw", {}))
+    alerts = render.source_alerts(today, stats, raw=raw)
     if alerts:
-        notes.append("连续 3 天无数据的来源：" + "、".join(alerts))
+        notes.append("连续 3 天抓取失败的来源（可能需要更新抓取规则）：" + "、".join(alerts))
 
     brief = {
         "version": version(), "date": today, "mode": res["mode"], "provider": res["provider"],
@@ -199,7 +214,7 @@ def build(cfg, args, today):
         "policy": policy_today, "announcements": anns, "key_numbers": key_numbers,
         "indicators": [{k: v for k, v in s.items() if k != "series"} | {"series": s["series"][-30:]}
                        for s in indicators.summary(ind_store) if s["core"]],
-        "source_stats": stats, "source_alerts": alerts, "notes": notes,
+        "source_stats": stats, "source_raw": raw, "source_alerts": alerts, "notes": notes,
         "article_stats": art, "site_url": cfg.get("publish", {}).get("site_url", ""),
     }
     if date.fromisoformat(today).weekday() == 6 or args.weekly:

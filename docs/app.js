@@ -1,7 +1,7 @@
 /* PowerBrief 前端：纯静态，数据以 data/*.js 形式加载（本地双击打开也能用）。 */
 (function () {
   "use strict";
-  var APP_VERSION = "2.2.0";
+  var APP_VERSION = "2.2.1";
   var CATS = ["政策法规", "市场与电价", "新能源与储能", "电网与技术", "企业动态", "国际", "综合"];
   var WATCH = "★ 关注";   // 今日页的特殊分类：只看命中关注清单的条目
   var state = { index: null, days: {}, glossary: null, extra: {}, cat: "全部", market: "A股", ptype: "全部" };
@@ -346,11 +346,15 @@
 
   function healthCard(d) {
     var names = Object.keys(d.source_stats); if (!names.length) return "";
-    var alerts = d.source_alerts.length ? '<p class="small" style="color:var(--warn);margin:4px 0">⚠ 连续 3 天无数据：' + esc(d.source_alerts.join("、")) + "（可能需要更新抓取规则）</p>" : "";
+    var alerts = d.source_alerts.length ? '<p class="small" style="color:var(--warn);margin:4px 0">⚠ 连续 3 天抓取失败：' + esc(d.source_alerts.join("、")) + "（可能需要更新抓取规则）</p>" : "";
+    var raw = d.source_raw || {};
     var art = d.article_stats ? '<p class="small muted" style="margin:4px 0">原文：解码 ' + d.article_stats.decoded + " 条，抓到正文 " + d.article_stats.text + " 条</p>" : "";
     return '<section class="card small"><details><summary>来源健康（' + names.length + " 个来源）</summary>" + alerts + art +
       '<table class="health">' + names.map(function (n) {
-        var v = d.source_stats[n]; return "<tr><td>" + esc(n) + '</td><td class="num">' + (v < 0 ? '<span style="color:var(--warn)">失败</span>' : v + " 条") + "</td></tr>"; }).join("") +
+        var v = d.source_stats[n], r = raw[n];
+        // 保留 0 条但抓到了内容：说明网站正常，只是这段时间没有电力相关或足够新的文章
+        var cell = v < 0 ? '<span style="color:var(--warn)">失败</span>' : v === 0 && r > 0 ? '0 条 <span class="muted">（抓到 ' + r + " 条，均不相关或较旧）</span>" : v + " 条";
+        return "<tr><td>" + esc(n) + '</td><td class="num">' + cell + "</td></tr>"; }).join("") +
       "</table></details></section>";
   }
 

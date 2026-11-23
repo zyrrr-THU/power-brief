@@ -380,6 +380,60 @@ def test_domestic_sources_in_cloud():
                and s["link_contains"].startswith("cpnn.com.cn/news/") and "domestic" not in s for s in src)
 
 
+def test_alerts_real_failures_only(tmp_dir):
+    """在线误报复现：抓到了但都被过滤（保留 0）不报；搜索类 0 条不报；连续 3 天失败、列表页 0 条才报。"""
+    orig = render.DATA
+    try:
+        render.DATA = tmp_dir / "alerts221"
+        render.DATA.mkdir(parents=True, exist_ok=True)
+        stats = {"生态环境部": 0, "政策·内蒙古": 0, "坏来源": -1, "空列表": 0}
+        raw = {"生态环境部": 6, "空列表": 0}          # 搜索类（政策·内蒙古）不记录原始条数
+        for d in ("2026-11-21", "2026-11-22"):
+            util.write_json(render.DATA / f"{d}.json", {"date": d, "items": [], "source_stats": stats, "source_raw": raw})
+        assert sorted(render.source_alerts("2026-11-23", stats, raw=raw)) == ["坏来源", "空列表"]
+        # 升级前的旧数据没有 source_raw：保留 0 的不算故障，误报立即消失
+        for d in ("2026-11-21", "2026-11-22"):
+            util.write_json(render.DATA / f"{d}.json", {"date": d, "items": [], "source_stats": {"生态环境部": 0, "坏来源": -1}})
+        assert render.source_alerts("2026-11-23", {"生态环境部": 0, "坏来源": -1}, raw={"生态环境部": 6}) == ["坏来源"]
+    finally:
+        render.DATA = orig
+
+
+def test_monday_lookback():
+    """周一回看延长到 72 小时覆盖周末；其他日子不变；配置为 0 不延长；平时已超过 72 小时的不缩短。"""
+    from powerbrief import main as m
+    cfg = {"run": {"lookback_hours": 24, "monday_lookback_hours": 72}}
+    assert m.monday_lookback(cfg, "2026-11-23") == 72 and cfg["run"]["lookback_hours"] == 72
+    cfg = {"run": {"lookback_hours": 24, "monday_lookback_hours": 72}}
+    assert m.monday_lookback(cfg, "2026-11-24") == 24
+    cfg = {"run": {"lookback_hours": 24, "monday_lookback_hours": 0}}
+    assert m.monday_lookback(cfg, "2026-11-23") == 24
+    cfg = {"run": {"lookback_hours": 96}}
+    assert m.monday_lookback(cfg, "2026-11-23") == 96
+    assert load_yaml("config.yaml", overlay=False)["run"]["monday_lookback_hours"] == 72
+
+
+def test_source_alerts_ignore_filtered(tmp_dir):
+    """抓到了但全被“电力相关”过滤掉（保留 0 条）不算故障；真失败（-1）或网页 0 条才提醒；被跳过的来源不提醒。"""
+    orig = render.DATA
+    try:
+        render.DATA = tmp_dir / "alerts"
+        render.DATA.mkdir(parents=True, exist_ok=True)
+        for d in ("2026-11-14", "2026-11-15"):
+            util.write_json(render.DATA / f"{d}.json", {"date": d, "items": [],
+                            "source_stats": {"发改委": 0, "坏来源": -1, "空页面": 0, "Google": -1},
+                            "source_raw": {"发改委": 25, "空页面": 0}})
+        stats = {"发改委": 0, "坏来源": -1, "空页面": 0}
+        raw = {"发改委": 25, "空页面": 0}
+        assert sorted(render.source_alerts("2026-11-16", stats, raw=raw)) == ["坏来源", "空页面"]
+        # 旧数据没有 source_raw：只把失败算作故障
+        for d in ("2026-11-14", "2026-11-15"):
+            util.write_json(render.DATA / f"{d}.json", {"date": d, "items": [], "source_stats": {"发改委": 0, "坏来源": -1}})
+        assert render.source_alerts("2026-11-16", {"发改委": 0, "坏来源": -1}, raw={"发改委": 25}) == ["坏来源"]
+    finally:
+        render.DATA = orig
+
+
 if __name__ == "__main__":
     import tempfile
 
@@ -394,6 +448,8 @@ if __name__ == "__main__":
     os.chdir(Path(__file__).resolve().parent.parent)
     usage.FILE = tmp / "usage_all.json"   # 自测不写入真实用量记录
     tests = [
+        (test_alerts_real_failures_only, (tmp,)), (test_monday_lookback, ()),
+        (test_source_alerts_ignore_filtered, (tmp,)),
         (test_index_rows_extended, (tmp,)), (test_push_watch_section, ()),
         (test_domestic_sources_in_cloud, ()),
         (test_parse_json, ()), (test_ai_mode_merge, (patch,)), (test_fallback_to_rule, (patch,)),
