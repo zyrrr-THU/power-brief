@@ -1,12 +1,13 @@
 {
- "version": "2.2.0",
- "generated": "2026-11-23T00:49:41+00:00",
+ "version": "2.2.1",
+ "generated": "2026-11-23T01:16:15+00:00",
  "effective": {
   "config": {
    "run": {
     "mode": "github",
     "timezone_offset_hours": 8,
     "lookback_hours": 24,
+    "monday_lookback_hours": 72,
     "max_items": 20,
     "max_per_category": 5
    },
@@ -698,6 +699,7 @@
     "mode": "github",
     "timezone_offset_hours": 8,
     "lookback_hours": 36,
+    "monday_lookback_hours": 72,
     "max_items": 22,
     "max_per_category": 6
    },
@@ -1453,21 +1455,19 @@
  },
  "repo": "zyrrr-THU/power-brief",
  "last_run": {
-  "time": "2026-11-23T00:49:41+00:00",
-  "version": "2.2.0",
+  "time": "2026-11-23T01:16:15+00:00",
+  "version": "2.2.1",
   "runner": "github",
   "trigger": "dispatch",
-  "run_id": "45090980878",
-  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/45090980878",
+  "run_id": "45093409359",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/45093409359",
   "date": "2026-11-23",
   "ok": true,
   "items": 20,
   "mode": "rule",
   "provider": "",
   "tokens": 0,
-  "notes": [
-   "连续 3 天无数据的来源：能源局·项目核准、能源局·工作动态、国家发改委·新闻发布、生态环境部、搜索·北极星电力网、政策·浙江"
-  ],
+  "notes": [],
   "push": "未推送（只更新网页）"
  }
 }
