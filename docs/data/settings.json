@@ -1,6 +1,6 @@
 {
  "version": "2.2.1",
- "generated": "2026-11-24T06:29:36+00:00",
+ "generated": "2026-11-25T05:04:15+00:00",
  "effective": {
   "config": {
    "run": {
@@ -1455,13 +1455,13 @@
  },
  "repo": "zyrrr-THU/power-brief",
  "last_run": {
-  "time": "2026-11-24T06:29:36+00:00",
+  "time": "2026-11-25T05:04:15+00:00",
   "version": "2.2.1",
   "runner": "github",
   "trigger": "schedule",
-  "run_id": "45340774859",
-  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/45340774859",
-  "date": "2026-11-24",
+  "run_id": "45550933043",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/45550933043",
+  "date": "2026-11-25",
   "ok": true,
   "items": 20,
   "mode": "rule",

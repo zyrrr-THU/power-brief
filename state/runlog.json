@@ -261,5 +261,21 @@
   "tokens": 0,
   "notes": [],
   "push": "pushplus:失败"
+ },
+ {
+  "time": "2026-11-25T05:04:15+00:00",
+  "version": "2.2.1",
+  "runner": "github",
+  "trigger": "schedule",
+  "run_id": "45550933043",
+  "run_url": "https://github.com/zyrrr-THU/power-brief/actions/runs/45550933043",
+  "date": "2026-11-25",
+  "ok": true,
+  "items": 20,
+  "mode": "rule",
+  "provider": "",
+  "tokens": 0,
+  "notes": [],
+  "push": "pushplus:失败"
  }
 ]
